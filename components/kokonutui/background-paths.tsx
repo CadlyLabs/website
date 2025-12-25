@@ -85,8 +85,7 @@ function generateAestheticPath(
 const generateUniqueId = (prefix: string): string =>
   `${prefix}-${Math.random().toString(36).substr(2, 9)}`;
 
-// Memoized FloatingPaths component
-const FloatingPaths = memo(function FloatingPaths({
+export const FloatingPaths = memo(function FloatingPaths({
   position,
 }: {
   position: number;
@@ -152,9 +151,9 @@ const FloatingPaths = memo(function FloatingPaths({
         <title>Background Paths</title>
         <defs>
           <linearGradient id="sharedGradient" x1="0%" x2="100%" y1="0%" y2="0%">
-            <stop offset="0%" stopColor="rgba(147, 51, 234, 0.5)" />
-            <stop offset="50%" stopColor="rgba(236, 72, 153, 0.5)" />
-            <stop offset="100%" stopColor="rgba(59, 130, 246, 0.5)" />
+            <stop offset="0%" stopColor="rgba(255, 133, 50, 0.5)" />
+            <stop offset="50%" stopColor="rgba(255, 98, 10, 0.5)" />
+            <stop offset="100%" stopColor="rgba(255, 72, 0, 0.5)" />
           </linearGradient>
         </defs>
 

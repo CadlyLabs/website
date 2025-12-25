@@ -36,6 +36,10 @@ Commit fully to this sophisticated, trustworthy B2B aesthetic that conveys techn
 <required_sections>
 Build these sections with creative interpretation:
 
+0. **Navigation bar**
+  - Use the shadcn component `navigation-menu.tsx`, for now each link in the navbar takes us to the corresponding section. 
+  - You can find the logo in `public/images/logos/`, this the logo without text, so add the "Cadly Labs" text.
+
 1. **Hero Section**
    - Headline: "Automatiza el trabajo manual que tu sistema de gestión no puede hacer"
    - Subheadline emphasizing non-disruptive approach: "Sin cambiar de ERP, sin procesos traumáticos"
@@ -57,7 +61,8 @@ Build these sections with creative interpretation:
 
 3. **Success Story Showcase** ("Casos de Éxito")
    - Featured case: Montes del Acabo APPCC platform
-   - Screenshot/mockup of the actual solution
+   - Screenshot/mockup of the actual solution, you can find it in `public/assets/images/demos/`
+   - For the logo of the client, use `public/images/logos/`
    - Results listed as bullet points
    - "Ver demo" CTA
 
@@ -83,7 +88,7 @@ Build these sections with creative interpretation:
    - Timeline or numbered card layout
    - Emphasize "implementaciones ágiles con resultados visibles desde el primer mes"
    
-6. **Why Cadly Labs? ("¿Por qué Cadly Labs?")
+6. **Why Cadly Labs?** ("¿Por qué Cadly Labs?")
 
   - Hero statement (Opción 3):**
     * Headline: "IA de verdad. Resultados en semanas." Susceptible to changes.
@@ -111,15 +116,13 @@ Build these sections with creative interpretation:
 </required_sections>
 
 <technical_requirements>
-- Single HTML file with embedded CSS and JavaScript
 - Mobile-responsive (fluid typography 14-18px body, 36-60px headlines)
 - Smooth scroll behavior
 - Intersection Observer for fade-in-up animations on scroll
 - Subtle hover states (scale: 1.02 on cards, underline animations on links)
 - CSS custom properties for color system
-- Semantic HTML5 structure
-- Performance-optimized (no heavy libraries)
-- Google Fonts: Libre Baskerville (600, 700), Manrope (400, 500, 600)
+- Performance-optimized and seo-optimized
+- Fonts: Libre Baskerville (600, 700), Manrope (400, 500, 600)
 - Include proper meta tags for SEO
 </technical_requirements>
 
@@ -129,7 +132,6 @@ Implement these refined animation principles:
 - **Scroll**: Fade-in-up (translateY: 20px → 0) with 0.6s ease-out
 - **Hover**: Subtle scale (1.02) on cards, 0.3s transition
 - **Interactive**: Smooth color transitions on buttons (0.3s)
-- **Background**: Optional: very subtle gradient shift in hero
 </motion_design>
 
 <spanish_content_guidelines>
@@ -137,18 +139,7 @@ Implement these refined animation principles:
 - Professional, confident tone without being aggressive
 - Emphasize trust, reliability, measurable results
 - Avoid overpromising - focus on pragmatic value and ROI
-- Use realistic placeholder company names for testimonials if needed
 </spanish_content_guidelines>
-
-<output_format>
-Deliver a single, complete HTML file that:
-1. Opens immediately in any browser with no dependencies
-2. Contains all CSS in a <style> tag (organized by section)
-3. Contains all JavaScript in a <script> tag (vanilla JS only)
-4. Uses realistic Spanish business content (no "Lorem ipsum")
-5. Is production-ready quality matching the Framer site aesthetic
-6. Includes proper meta tags for SEO
-</output_format>
 
 <thinking_process>
 Before coding, briefly outline:
@@ -158,5 +149,5 @@ Before coding, briefly outline:
 4. Hero hook: "Automatiza el trabajo manual que tu sistema de gestión no puede hacer"
 5. Unique element: Module grid with alternating image-text layouts for key services
 
-Then build the complete page with the sophisticated, trustworthy B2B style of the Framer website.
+Then build the complete page with the sophisticated, trustworthy B2B style.
 </thinking_process>
