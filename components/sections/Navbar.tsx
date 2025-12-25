@@ -99,7 +99,7 @@ export function Navbar() {
               ))}
               <button
                 onClick={() => handleNavClick("#contacto")}
-                className="rounded-full bg-brand-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-700"
+                className="rounded-lg bg-brand-600 px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-brand-700"
               >
                 Agendar consultoría
               </button>
@@ -173,7 +173,7 @@ export function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.05 }}
                   onClick={() => handleNavClick("#contacto")}
-                  className="mt-4 rounded-full bg-brand-600 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-brand-700"
+                   className="mt-4 rounded-lg bg-brand-600 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-brand-700"
                 >
                   Agendar consultoría
                 </motion.button>

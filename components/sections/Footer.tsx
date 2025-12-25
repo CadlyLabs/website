@@ -33,7 +33,7 @@ export function Footer() {
           <div className="flex flex-col items-center gap-4 md:items-end">
             <a
               href="#contacto"
-              className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-700"
+              className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-700"
             >
               Agendar consultoría gratuita
               <svg

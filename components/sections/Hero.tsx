@@ -67,7 +67,7 @@ export function Hero() {
           >
             <MovingBorderButton
               onClick={() => handleScrollToSection("#modulos")}
-              borderRadius="1.75rem"
+              borderRadius="0.75rem"
               containerClassName="h-14 w-48"
               borderClassName="bg-[radial-gradient(rgb(255,133,50)_40%,transparent_60%)]"
               className="border-brand-600/20 bg-brand-600 font-medium text-white hover:bg-brand-700"
@@ -77,7 +77,7 @@ export function Hero() {
 
             <button
               onClick={() => handleScrollToSection("#contacto")}
-              className="flex h-14 items-center justify-center rounded-full border-2 border-gray-300 bg-white/80 px-8 font-medium text-gray-700 backdrop-blur-sm transition-all hover:border-brand-500 hover:text-brand-600"
+              className="flex h-14 items-center justify-center rounded-lg border-2 border-gray-300 bg-white/80 px-8 font-medium text-gray-700 backdrop-blur-sm transition-all hover:border-brand-500 hover:text-brand-600"
             >
               Consultoría gratuita
             </button>

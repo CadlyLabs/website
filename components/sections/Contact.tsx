@@ -49,7 +49,7 @@ export function Contact() {
             <div className="grid gap-4 sm:grid-cols-2">
               <a
                 href="mailto:info@cadlylabs.com"
-                className="group flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-brand-200 hover:shadow-lg"
+                className="group flex flex-col items-center gap-3 rounded-3xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-brand-200 hover:shadow-lg"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-50 transition-colors group-hover:bg-brand-100">
                   <Mail className="h-7 w-7 text-brand-600" />
@@ -66,7 +66,7 @@ export function Contact() {
 
               <a
                 href="tel:+34606518235"
-                className="group flex flex-col items-center gap-3 rounded-2xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-brand-200 hover:shadow-lg"
+                className="group flex flex-col items-center gap-3 rounded-3xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-brand-200 hover:shadow-lg"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-50 transition-colors group-hover:bg-brand-100">
                   <Phone className="h-7 w-7 text-brand-600" />
@@ -97,7 +97,7 @@ export function Contact() {
           </FadeInView>
 
           <FadeInView delay={0.2}>
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
+            <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
               {state.success ? (
                 <div className="flex flex-col items-center justify-center py-8 text-center">
                   <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
@@ -188,7 +188,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isPending}
-                    className="w-full rounded-full bg-charcoal py-3 font-medium text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
+                    className="w-full rounded-lg bg-charcoal py-3 font-medium text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
                   >
                     {isPending ? "Enviando..." : "Enviar"}
                   </button>

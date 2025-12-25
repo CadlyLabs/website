@@ -140,7 +140,7 @@ function ServiceCard({ module }: { module: Module }) {
           className={cn(
             "absolute inset-0 h-full w-full",
             "[backface-visibility:hidden] [transform:rotateY(0deg)]",
-            "overflow-hidden rounded-2xl",
+            "overflow-hidden rounded-3xl",
             "bg-white",
             "border border-gray-200",
             "shadow-sm",
@@ -173,7 +173,7 @@ function ServiceCard({ module }: { module: Module }) {
           className={cn(
             "absolute inset-0 h-full w-full",
             "[backface-visibility:hidden] [transform:rotateY(180deg)]",
-            "rounded-2xl p-6",
+            "rounded-3xl p-6",
             "bg-gradient-to-br from-brand-50 to-white",
             "border border-brand-100",
             "shadow-sm",
@@ -213,7 +213,7 @@ function ServiceCard({ module }: { module: Module }) {
           </div>
 
           <div className="mt-4 border-t border-brand-100 pt-4">
-            <button className="flex w-full items-center justify-between rounded-xl bg-white px-4 py-3 text-sm font-medium text-gray-900 transition-all hover:bg-brand-50 hover:text-brand-700">
+            <button className="flex w-full items-center justify-between rounded-lg bg-white px-4 py-3 text-sm font-medium text-gray-900 transition-all hover:bg-brand-50 hover:text-brand-700">
               <span>Solicitar demo</span>
               <ArrowRight className="h-4 w-4 text-brand-500" />
             </button>

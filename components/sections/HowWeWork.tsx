@@ -74,7 +74,7 @@ export function HowWeWork() {
                       }`}
                     >
                       <div
-                        className={`rounded-2xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md ${
+                        className={`rounded-3xl border border-gray-200 bg-white p-6 shadow-sm transition-shadow hover:shadow-md ${
                           isEven ? "md:ml-auto md:mr-0" : "md:ml-0 md:mr-auto"
                         } md:max-w-md`}
                       >

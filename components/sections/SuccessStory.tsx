@@ -75,7 +75,7 @@ export function SuccessStory() {
               </div>
 
               <div className="mt-8">
-                <button className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-700">
+                <button className="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-700">
                   Ver caso completo
                   <svg
                     className="h-4 w-4"

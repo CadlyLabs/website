@@ -51,7 +51,7 @@ export function WhyCadly() {
             const Icon = item.icon;
             return (
               <FadeInView key={item.id} delay={index * 0.1}>
-                <div className="group rounded-2xl border border-gray-200 bg-white p-6 transition-all hover:border-brand-200 hover:shadow-lg">
+                <div className="group rounded-3xl border border-gray-200 bg-white p-6 transition-all hover:border-brand-200 hover:shadow-lg">
                   <div className="flex items-start gap-4">
                     <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-xl bg-brand-50 transition-colors group-hover:bg-brand-100">
                       <Icon className="h-6 w-6 text-brand-600" />
