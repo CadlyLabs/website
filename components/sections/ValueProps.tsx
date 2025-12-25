@@ -25,7 +25,7 @@ const benefits: Benefit[] = [
     metric: "70%",
     metricLabel: "reducción de tiempo",
     icon: Clock,
-    color: "from-orange-500 to-amber-500",
+    color: "from-brand-500 to-brand-600",
   },
   {
     id: "roi",
@@ -35,7 +35,7 @@ const benefits: Benefit[] = [
     metric: "3x",
     metricLabel: "ROI primer año",
     icon: TrendingUp,
-    color: "from-emerald-500 to-teal-500",
+    color: "from-brand-500 to-brand-600",
   },
   {
     id: "accuracy",
@@ -45,7 +45,7 @@ const benefits: Benefit[] = [
     metric: "95%",
     metricLabel: "precisión de datos",
     icon: Target,
-    color: "from-blue-500 to-indigo-500",
+    color: "from-brand-500 to-brand-600",
   },
   {
     id: "visibility",
@@ -55,7 +55,7 @@ const benefits: Benefit[] = [
     metric: "24/7",
     metricLabel: "visibilidad",
     icon: Eye,
-    color: "from-violet-500 to-purple-500",
+    color: "from-brand-500 to-brand-600",
   },
 ];
 
@@ -100,7 +100,7 @@ function BenefitCard({ benefit, index }: { benefit: Benefit; index: number }) {
     >
       <div
         className={cn(
-          "relative h-full overflow-hidden rounded-2xl border border-gray-200 bg-white p-6 transition-all duration-300",
+          "relative h-full overflow-hidden rounded-3xl border border-gray-200 bg-white p-6 transition-all duration-300",
           "hover:border-gray-300 hover:shadow-xl"
         )}
       >
