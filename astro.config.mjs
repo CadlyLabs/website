@@ -1,12 +1,19 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
+import react from '@astrojs/react';
 import tailwindcss from '@tailwindcss/vite';
 
-// https://astro.build/config
+import node from '@astrojs/node';
+
 export default defineConfig({
-  site: 'https://cadlylabs.com',
+  integrations: [react()],
+  output: 'server',
+
   vite: {
     plugins: [tailwindcss()]
-  }
+  },
+
+  adapter: node({
+    mode: 'standalone'
+  })
 });

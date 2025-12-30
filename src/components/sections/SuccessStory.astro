@@ -1,0 +1,97 @@
+---
+import { CheckCircle2 } from "lucide-react";
+import { FadeInView } from "@/components/animations/FadeInView";
+
+const results = [
+  "Reducción del 80% en tiempo de registro de controles",
+  "Informes de auditoría generados en segundos",
+  "Cumplimiento APPCC 100% digitalizado",
+  "Alertas automáticas de vencimientos y tareas",
+  "Acceso en tiempo real desde cualquier dispositivo",
+];
+---
+
+<section id="casos" class="bg-white py-24">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <FadeInView client:visible className="text-center">
+      <span class="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
+        Casos de Éxito
+      </span>
+      <h2 class="mt-4 font-heading text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
+        Resultados que hablan por sí solos
+      </h2>
+    </FadeInView>
+
+    <FadeInView client:visible delay={0.2}>
+      <div class="mt-16 overflow-hidden rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100 lg:grid lg:grid-cols-2 lg:gap-0">
+        <div class="relative aspect-[4/3] lg:aspect-auto">
+          <img
+            src="/images/logos/appcc_demo.avif"
+            alt="Plataforma APPCC de Montes del Acebo"
+            class="h-full w-full object-cover"
+          />
+          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent lg:bg-gradient-to-r" />
+        </div>
+
+        <div class="flex flex-col justify-center p-8 lg:p-12">
+          <div class="flex items-center gap-4">
+            <img
+              src="/images/logos/montes_acebo_logo.avif"
+              alt="Montes del Acebo"
+              width="60"
+              height="60"
+              class="rounded-xl"
+            />
+            <div>
+              <h3 class="font-heading text-xl font-bold text-gray-900">
+                Montes del Acebo
+              </h3>
+              <p class="text-sm text-gray-500">
+                Industria Alimentaria
+              </p>
+            </div>
+          </div>
+
+          <div class="mt-6">
+            <p class="text-lg font-medium text-gray-900">
+              Plataforma APPCC Digital
+            </p>
+            <p class="mt-2 text-gray-600">
+              Transformamos la gestión de seguridad alimentaria de Montes
+              del Acebo con una plataforma integral que automatiza registros,
+              genera informes y garantiza el cumplimiento normativo.
+            </p>
+          </div>
+
+          <div class="mt-8 space-y-3">
+            {results.map((result) => (
+              <div class="flex items-start gap-3">
+                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-500" />
+                <span class="text-sm text-gray-700">{result}</span>
+              </div>
+            ))}
+          </div>
+
+          <div class="mt-8">
+            <button class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-700">
+              Ver caso completo
+              <svg
+                class="h-4 w-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </FadeInView>
+  </div>
+</section>
