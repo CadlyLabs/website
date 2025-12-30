@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { Sparkles } from "lucide-react";
 import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { FloatingPaths } from "@/components/kokonutui/background-paths";
 
@@ -33,7 +34,8 @@ export function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0 }}
           >
-            <span className="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
+            <span className="inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
+              <Sparkles className="h-4 w-4" />
               Inteligencia Artificial para Operativa Real
             </span>
           </motion.div>
@@ -42,7 +44,7 @@ export function Hero() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 font-heading text-4xl font-bold leading-tight text-gray-900 sm:text-5xl md:text-6xl"
+            className="mt-8 font-heading text-4xl font-semibold leading-tight text-gray-900 sm:text-5xl md:text-6xl"
           >
             Automatiza el trabajo manual que tu sistema de gestión no puede
             hacer
@@ -67,17 +69,17 @@ export function Hero() {
           >
             <MovingBorderButton
               onClick={() => handleScrollToSection("#modulos")}
-              borderRadius="0.75rem"
-              containerClassName="h-14 w-48"
+              borderRadius="1.5rem"
+              containerClassName="h-12 w-44"
               borderClassName="bg-[radial-gradient(rgb(255,133,50)_40%,transparent_60%)]"
-              className="border-brand-600/20 bg-brand-600 font-medium text-white hover:bg-brand-700"
+              className="border-brand-600/20 bg-brand-600 text-sm font-medium text-white hover:bg-brand-700"
             >
               Ver soluciones
             </MovingBorderButton>
 
             <button
               onClick={() => handleScrollToSection("#contacto")}
-              className="flex h-14 items-center justify-center rounded-lg border-2 border-gray-300 bg-white/80 px-8 font-medium text-gray-700 backdrop-blur-sm transition-all hover:border-brand-500 hover:text-brand-600"
+              className="flex h-12 items-center justify-center rounded-3xl border-2 border-gray-300 bg-white/80 px-7 text-sm font-medium text-gray-700 backdrop-blur-sm transition-all hover:border-brand-500 hover:text-brand-600"
             >
               Consultoría gratuita
             </button>
