@@ -8,14 +8,10 @@ import { Label } from "@/components/ui/label";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { cn } from "@/lib/utils";
 
-interface ContactFormState {
-  success: boolean;
-  message: string;
-  errors?: {
-    nombre?: string[];
-    email?: string[];
-    detalles?: string[];
-  };
+interface FormErrors {
+  nombre?: string;
+  email?: string;
+  detalles?: string;
 }
 
 const trustBadges = [
@@ -24,34 +20,65 @@ const trustBadges = [
   { icon: Shield, text: "Sin compromiso" },
 ];
 
+function validateEmail(email: string): boolean {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
 export function Contact() {
-  const [state, setState] = useState<ContactFormState>({
-    success: false,
-    message: "",
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [formData, setFormData] = useState({
+    nombre: "",
+    email: "",
+    detalles: "",
   });
-  const [isPending, setIsPending] = useState(false);
 
-  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+  function validateForm(): boolean {
+    const newErrors: FormErrors = {};
+
+    if (formData.nombre.length < 2) {
+      newErrors.nombre = "El nombre debe tener al menos 2 caracteres";
+    } else if (formData.nombre.length > 100) {
+      newErrors.nombre = "El nombre es demasiado largo";
+    }
+
+    if (!validateEmail(formData.email)) {
+      newErrors.email = "Por favor, introduce un email válido";
+    }
+
+    if (formData.detalles.length < 10) {
+      newErrors.detalles = "Por favor, cuéntanos un poco más sobre tu proyecto";
+    } else if (formData.detalles.length > 2000) {
+      newErrors.detalles = "El mensaje es demasiado largo";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  }
+
+  function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    setIsPending(true);
 
-    const formData = new FormData(event.currentTarget);
+    if (!validateForm()) {
+      return;
+    }
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        body: formData,
-      });
+    const subject = encodeURIComponent(`Contacto de ${formData.nombre}`);
+    const body = encodeURIComponent(
+      `Nombre: ${formData.nombre}\nEmail: ${formData.email}\n\nMensaje:\n${formData.detalles}`
+    );
+    const mailtoLink = `mailto:info@cadlylabs.com?subject=${subject}&body=${body}`;
 
-      const result = await response.json();
-      setState(result);
-    } catch {
-      setState({
-        success: false,
-        message: "Error al enviar el formulario. Por favor, inténtalo de nuevo.",
-      });
-    } finally {
-      setIsPending(false);
+    window.location.href = mailtoLink;
+  }
+
+  function handleInputChange(
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   }
 
@@ -124,102 +151,74 @@ export function Contact() {
 
           <FadeInView delay={0.2}>
             <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
-              {state.success ? (
-                <div className="flex flex-col items-center justify-center py-8 text-center">
-                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
-                    <svg
-                      className="h-8 w-8 text-green-600"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M5 13l4 4L19 7"
-                      />
-                    </svg>
-                  </div>
-                  <h3 className="mt-4 font-heading text-xl font-bold text-gray-900">
-                    ¡Mensaje enviado!
-                  </h3>
-                  <p className="mt-2 text-gray-600">{state.message}</p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div className="space-y-2">
-                    <Label htmlFor="nombre">Nombre</Label>
-                    <Input
-                      id="nombre"
-                      name="nombre"
-                      placeholder="Tu nombre"
-                      required
-                      className={cn(
-                        state.errors?.nombre && "border-red-500 focus:ring-red-500"
-                      )}
-                    />
-                    {state.errors?.nombre && (
-                      <p className="text-sm text-red-500">
-                        {state.errors.nombre[0]}
-                      </p>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="space-y-2">
+                  <Label htmlFor="nombre">Nombre</Label>
+                  <Input
+                    id="nombre"
+                    name="nombre"
+                    placeholder="Tu nombre"
+                    required
+                    value={formData.nombre}
+                    onChange={handleInputChange}
+                    className={cn(
+                      errors.nombre && "border-red-500 focus:ring-red-500"
                     )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email">Correo Electrónico</Label>
-                    <Input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="tu@empresa.com"
-                      required
-                      className={cn(
-                        state.errors?.email && "border-red-500 focus:ring-red-500"
-                      )}
-                    />
-                    {state.errors?.email && (
-                      <p className="text-sm text-red-500">
-                        {state.errors.email[0]}
-                      </p>
-                    )}
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="detalles">
-                      Cuéntanos sobre tu proyecto
-                    </Label>
-                    <Textarea
-                      id="detalles"
-                      name="detalles"
-                      placeholder="¿Qué procesos te gustaría automatizar? ¿Qué sistemas usáis actualmente?"
-                      rows={4}
-                      required
-                      className={cn(
-                        state.errors?.detalles &&
-                          "border-red-500 focus:ring-red-500"
-                      )}
-                    />
-                    {state.errors?.detalles && (
-                      <p className="text-sm text-red-500">
-                        {state.errors.detalles[0]}
-                      </p>
-                    )}
-                  </div>
-
-                  {state.message && !state.success && (
-                    <p className="text-sm text-red-500">{state.message}</p>
+                  />
+                  {errors.nombre && (
+                    <p className="text-sm text-red-500">{errors.nombre}</p>
                   )}
+                </div>
 
-                  <button
-                    type="submit"
-                    disabled={isPending}
-                    className="w-full rounded-lg bg-charcoal py-3 font-medium text-white transition-colors hover:bg-gray-800 disabled:cursor-not-allowed disabled:opacity-50"
-                  >
-                    {isPending ? "Enviando..." : "Enviar"}
-                  </button>
-                </form>
-              )}
+                <div className="space-y-2">
+                  <Label htmlFor="email">Correo Electrónico</Label>
+                  <Input
+                    id="email"
+                    name="email"
+                    type="email"
+                    placeholder="tu@empresa.com"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className={cn(
+                      errors.email && "border-red-500 focus:ring-red-500"
+                    )}
+                  />
+                  {errors.email && (
+                    <p className="text-sm text-red-500">{errors.email}</p>
+                  )}
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="detalles">Cuéntanos sobre tu proyecto</Label>
+                  <Textarea
+                    id="detalles"
+                    name="detalles"
+                    placeholder="¿Qué procesos te gustaría automatizar? ¿Qué sistemas usáis actualmente?"
+                    rows={4}
+                    required
+                    value={formData.detalles}
+                    onChange={handleInputChange}
+                    className={cn(
+                      errors.detalles && "border-red-500 focus:ring-red-500"
+                    )}
+                  />
+                  {errors.detalles && (
+                    <p className="text-sm text-red-500">{errors.detalles}</p>
+                  )}
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full rounded-lg bg-charcoal py-3 font-medium text-white transition-colors hover:bg-gray-800"
+                >
+                  Enviar
+                </button>
+
+                <p className="text-center text-xs text-gray-500">
+                  Se abrirá tu cliente de correo para enviar el mensaje
+                </p>
+              </form>
             </div>
           </FadeInView>
         </div>

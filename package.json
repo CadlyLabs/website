@@ -9,7 +9,6 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/node": "^9.5.1",
     "@astrojs/react": "^4.4.2",
     "@fontsource/libre-baskerville": "^5.2.10",
     "@fontsource/manrope": "^5.2.8",
