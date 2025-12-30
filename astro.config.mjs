@@ -8,7 +8,7 @@ import node from '@astrojs/node';
 export default defineConfig({
   integrations: [react()],
   output: 'server',
-
+  site: 'https://cadlylabs.com',
   vite: {
     plugins: [tailwindcss()]
   },
