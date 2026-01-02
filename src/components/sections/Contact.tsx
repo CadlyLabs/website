@@ -210,7 +210,7 @@ export function Contact() {
 
                 <button
                   type="submit"
-                  className="w-full rounded-lg bg-charcoal py-3 font-medium text-white transition-colors hover:bg-gray-800"
+                  className="w-full rounded-full bg-brand-600 py-3 font-medium text-white transition-colors hover:bg-brand-700"
                 >
                   Enviar
                 </button>

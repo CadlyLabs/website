@@ -26,30 +26,37 @@ const ERP_LOGOS = [
 ];
 
 function APPCCDashboardVisual() {
+  const checklistItems = [
+    { label: "Recepción mercancía", done: true },
+    { label: "Control de etiquetado", done: true },
+    { label: "Verificación caducidades", done: true },
+    { label: "Limpieza y desinfección", done: false, pending: true },
+  ];
+
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-4">
+    <div className="@container relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-3 @[280px]:p-4">
       <motion.div
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.2 }}
-        className="mb-3 rounded-lg border border-gray-200 bg-white p-3 shadow-sm"
+        className="mb-2 @[280px]:mb-3 rounded-lg border border-gray-200 bg-white p-2 @[280px]:p-3 shadow-sm"
       >
-        <div className="mb-2 flex items-center justify-between">
+        <div className="mb-1.5 @[280px]:mb-2 flex items-center justify-between">
           <div className="text-xs font-medium text-gray-700">Lote #2024-1847</div>
           <div className="rounded bg-emerald-100 px-1.5 py-0.5 text-xs font-medium text-emerald-700">
             Trazado
           </div>
         </div>
-        <div className="space-y-1.5 text-xs">
+        <div className="space-y-1 @[280px]:space-y-1.5 text-xs">
           <div className="flex justify-between">
             <span className="text-gray-500">Producto</span>
-            <span className="font-medium text-gray-700">Pechuga de pollo</span>
+            <span className="font-medium text-gray-700 truncate ml-2">Pechuga de pollo</span>
           </div>
           <div className="flex justify-between">
             <span className="text-gray-500">Proveedor</span>
-            <span className="font-medium text-gray-700">Avícola Norte S.L.</span>
+            <span className="font-medium text-gray-700 truncate ml-2">Avícola Norte</span>
           </div>
-          <div className="flex justify-between">
+          <div className="hidden @[300px]:flex justify-between">
             <span className="text-gray-500">Fecha entrada</span>
             <span className="font-medium text-gray-700">15/01/2026</span>
           </div>
@@ -64,22 +71,17 @@ function APPCCDashboardVisual() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.4 }}
-        className="rounded-lg border border-gray-200 bg-white p-3 shadow-sm"
+        className="rounded-lg border border-gray-200 bg-white p-2 @[280px]:p-3 shadow-sm"
       >
-        <div className="mb-2 text-xs font-medium text-gray-700">
+        <div className="mb-1.5 @[280px]:mb-2 text-xs font-medium text-gray-700">
           Registros del día
         </div>
-        <div className="space-y-2">
-          {[
-            { label: "Recepción mercancía", done: true },
-            { label: "Control de etiquetado", done: true },
-            { label: "Verificación caducidades", done: true },
-            { label: "Limpieza y desinfección", done: false, pending: true },
-          ].map((item, i) => (
+        <div className="space-y-1.5 @[280px]:space-y-2">
+          {checklistItems.slice(0, 3).map((item, i) => (
             <div key={i} className="flex items-center gap-2">
               <div
                 className={cn(
-                  "flex h-4 w-4 items-center justify-center rounded",
+                  "flex h-4 w-4 shrink-0 items-center justify-center rounded",
                   item.done
                     ? "bg-emerald-100 text-emerald-600"
                     : item.pending
@@ -90,14 +92,19 @@ function APPCCDashboardVisual() {
                 {item.done && <Check className="h-3 w-3" />}
                 {item.pending && <AlertCircle className="h-3 w-3" />}
               </div>
-              <span className="text-xs text-gray-600">{item.label}</span>
-              {item.pending && (
-                <span className="ml-auto rounded bg-amber-100 px-1.5 py-0.5 text-xs font-medium text-amber-700">
-                  Pendiente
-                </span>
-              )}
+              <span className="text-xs text-gray-600 truncate">{item.label}</span>
             </div>
           ))}
+          {/* Show 4th item only on larger containers */}
+          <div className="hidden @[320px]:flex items-center gap-2">
+            <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded bg-amber-100 text-amber-600">
+              <AlertCircle className="h-3 w-3" />
+            </div>
+            <span className="text-xs text-gray-600 truncate">{checklistItems[3].label}</span>
+            <span className="ml-auto rounded bg-amber-100 px-1.5 py-0.5 text-xs font-medium text-amber-700 hidden @[380px]:inline">
+              Pendiente
+            </span>
+          </div>
         </div>
       </motion.div>
 
@@ -105,7 +112,7 @@ function APPCCDashboardVisual() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.6 }}
-        className="mt-3 flex items-center justify-between rounded-lg bg-emerald-50 px-3 py-2"
+        className="hidden @[300px]:flex mt-2 @[280px]:mt-3 items-center justify-between rounded-lg bg-emerald-50 px-2 @[280px]:px-3 py-1.5 @[280px]:py-2"
       >
         <span className="text-xs font-medium text-emerald-700">
           Cumplimiento: 75%
@@ -121,29 +128,38 @@ function APPCCDashboardVisual() {
 }
 
 function DocumentScannerVisual() {
+  const extractedData = [
+    { label: "Proveedor", value: "Distribuciones García" },
+    { label: "NIF", value: "B-12345678" },
+    { label: "Fecha", value: "15/01/2026" },
+    { label: "Base", value: "1.527,69 €" },
+    { label: "IVA", value: "320,81 €" },
+    { label: "Total", value: "1.847,50 €" },
+  ];
+
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-4">
+    <div className="@container relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-3 @[280px]:p-4">
       <motion.div
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
         transition={{ delay: 0.2 }}
-        className="relative mb-3 rounded-lg border border-gray-200 bg-white p-3 shadow-sm"
+        className="relative mb-2 @[280px]:mb-3 rounded-lg border border-gray-200 bg-white p-2 @[280px]:p-3 shadow-sm"
       >
-        <div className="mb-2 flex items-center justify-between">
+        <div className="mb-1.5 @[280px]:mb-2 flex items-center justify-between">
           <div className="text-xs font-medium text-gray-700">Factura #F-2847</div>
           <div className="rounded bg-brand-100 px-1.5 py-0.5 text-xs text-brand-600">
             Procesando...
           </div>
         </div>
-        <div className="space-y-1.5">
+        <div className="space-y-1 @[280px]:space-y-1.5">
           <div className="h-2 w-3/4 rounded bg-gray-200" />
           <div className="h-2 w-1/2 rounded bg-gray-200" />
           <div className="h-2 w-2/3 rounded bg-gray-200" />
         </div>
         <motion.div
-          className="absolute inset-x-3 h-0.5 bg-brand-500/60"
+          className="absolute inset-x-2 @[280px]:inset-x-3 h-0.5 bg-brand-500/60"
           initial={{ top: 8 }}
-          animate={{ top: [8, 60, 8] }}
+          animate={{ top: [8, 50, 8] }}
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
         />
       </motion.div>
@@ -152,24 +168,23 @@ function DocumentScannerVisual() {
         initial={{ opacity: 0, y: 10 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ delay: 0.5 }}
-        className="rounded-lg border border-emerald-200 bg-emerald-50 p-3"
+        className="rounded-lg border border-emerald-200 bg-emerald-50 p-2 @[280px]:p-3"
       >
-        <div className="mb-2 flex items-center gap-1.5 text-xs font-medium text-emerald-700">
-          <FileSearch className="h-3.5 w-3.5" />
+        <div className="mb-1.5 @[280px]:mb-2 flex items-center gap-1.5 text-xs font-medium text-emerald-700">
+          <FileSearch className="h-3.5 w-3.5 shrink-0" />
           Datos extraídos
         </div>
-        <div className="space-y-1 text-xs">
-          {[
-            { label: "Proveedor", value: "Distribuciones García S.L." },
-            { label: "NIF", value: "B-12345678" },
-            { label: "Fecha", value: "15/01/2026" },
-            { label: "Base imponible", value: "1.527,69 €" },
-            { label: "IVA (21%)", value: "320,81 €" },
-            { label: "Total", value: "1.847,50 €" },
-          ].map((item, i) => (
-            <div key={i} className="flex justify-between">
-              <span className="text-gray-500">{item.label}</span>
-              <span className="font-medium text-gray-700">{item.value}</span>
+        <div className="space-y-0.5 @[280px]:space-y-1 text-xs">
+          {extractedData.slice(0, 4).map((item, i) => (
+            <div key={i} className="flex justify-between gap-2">
+              <span className="text-gray-500 shrink-0">{item.label}</span>
+              <span className="font-medium text-gray-700 truncate">{item.value}</span>
+            </div>
+          ))}
+          {extractedData.slice(4).map((item, i) => (
+            <div key={i + 4} className="hidden @[300px]:flex justify-between gap-2">
+              <span className="text-gray-500 shrink-0">{item.label}</span>
+              <span className="font-medium text-gray-700 truncate">{item.value}</span>
             </div>
           ))}
         </div>
@@ -179,16 +194,16 @@ function DocumentScannerVisual() {
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ delay: 0.8 }}
-        className="mt-2 flex items-center justify-center gap-3"
+        className="hidden @[280px]:flex mt-2 items-center justify-center gap-2 @[320px]:gap-3"
       >
-        <span className="text-xs text-gray-400">Sincroniza con</span>
-        <div className="flex items-center gap-2">
-          {ERP_LOGOS.slice(0, 5).map((erp, i) => (
+        <span className="text-xs text-gray-400 hidden @[320px]:inline">Sincroniza con</span>
+        <div className="flex items-center gap-1.5 @[320px]:gap-2">
+          {ERP_LOGOS.slice(0, 3).map((erp, i) => (
             <img
               key={i}
               src={erp.src}
               alt={erp.name}
-              className="h-4 w-auto opacity-60 grayscale"
+              className="h-3.5 @[320px]:h-4 w-auto opacity-60 grayscale"
             />
           ))}
           <span className="text-xs text-gray-400">+más</span>
@@ -209,26 +224,26 @@ function ERPIntegrationVisual() {
   }, []);
 
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-4">
+    <div className="@container relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-3 @[250px]:p-4">
       <div className="flex h-full flex-col items-center justify-center">
-        <div className="relative flex items-center justify-center gap-6">
-          <div className="flex h-14 w-14 items-center justify-center rounded-xl border border-brand-200 bg-brand-50 shadow-sm">
+        <div className="relative flex items-center justify-center gap-3 @[250px]:gap-6">
+          <div className="flex h-10 w-10 @[250px]:h-14 @[250px]:w-14 items-center justify-center rounded-xl border border-brand-200 bg-brand-50 shadow-sm">
             <img 
               src="/images/logos/cadly_logo.avif" 
               alt="Cadly" 
-              className="h-8 w-8 object-contain"
+              className="h-6 w-6 @[250px]:h-8 @[250px]:w-8 object-contain"
             />
           </div>
           
-          <ArrowRight className="h-5 w-5 text-brand-500" />
+          <ArrowRight className="h-4 w-4 @[250px]:h-5 @[250px]:w-5 text-brand-500 shrink-0" />
 
-          <div className="relative h-14 w-20 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
+          <div className="relative h-10 w-14 @[250px]:h-14 @[250px]:w-20 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
             <AnimatePresence mode="wait">
               <motion.img
                 key={currentIndex}
                 src={ERP_LOGOS[currentIndex].src}
                 alt={ERP_LOGOS[currentIndex].name}
-                className="absolute inset-0 m-auto h-8 max-w-14 object-contain"
+                className="absolute inset-0 m-auto h-6 @[250px]:h-8 max-w-10 @[250px]:max-w-14 object-contain"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 exit={{ opacity: 0, y: -20 }}
@@ -242,10 +257,10 @@ function ERPIntegrationVisual() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.5 }}
-          className="mt-4 rounded-lg bg-emerald-50 px-3 py-1.5"
+          className="mt-3 @[250px]:mt-4 rounded-lg bg-emerald-50 px-2 @[250px]:px-3 py-1 @[250px]:py-1.5"
         >
           <span className="text-xs font-medium text-emerald-700">
-            Sincronización en tiempo real
+            Sync en tiempo real
           </span>
         </motion.div>
       </div>
@@ -255,23 +270,37 @@ function ERPIntegrationVisual() {
 
 function PedidosVisual() {
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-4">
+    <div className="@container relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-3 @[280px]:p-4">
       <div className="flex h-full flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, x: -20 }}
           animate={{ opacity: 1, x: 0 }}
-          className="mb-3 flex items-center gap-3"
+          className="mb-2 @[280px]:mb-3"
         >
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-gray-100">
-            <Mail className="h-5 w-5 text-gray-500" />
+          <div className="flex @[220px]:hidden items-center gap-1.5">
+            <div className="flex h-6 w-6 items-center justify-center rounded bg-gray-100 shrink-0">
+              <Mail className="h-3 w-3 text-gray-500" />
+            </div>
+            <div className="flex h-6 w-6 items-center justify-center rounded bg-green-100 shrink-0">
+              <MessageCircle className="h-3 w-3 text-green-600" />
+            </div>
+            <ArrowRight className="h-2.5 w-2.5 text-brand-500 shrink-0" />
+            <div className="rounded bg-brand-100 px-1.5 py-0.5 text-[10px] font-medium text-brand-700">
+              ERP
+            </div>
           </div>
-          <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-green-100">
-            <MessageCircle className="h-5 w-5 text-green-600" />
-          </div>
-          <div className="text-xs text-gray-400">EDI</div>
-          <ArrowRight className="h-4 w-4 text-brand-500" />
-          <div className="rounded-lg bg-brand-100 px-3 py-2 text-xs font-medium text-brand-700">
-            Tu Sistema
+          <div className="hidden @[220px]:flex items-center gap-2 @[280px]:gap-3">
+            <div className="flex h-8 w-8 @[280px]:h-10 @[280px]:w-10 items-center justify-center rounded-lg bg-gray-100 shrink-0">
+              <Mail className="h-4 w-4 @[280px]:h-5 @[280px]:w-5 text-gray-500" />
+            </div>
+            <div className="flex h-8 w-8 @[280px]:h-10 @[280px]:w-10 items-center justify-center rounded-lg bg-green-100 shrink-0">
+              <MessageCircle className="h-4 w-4 @[280px]:h-5 @[280px]:w-5 text-green-600" />
+            </div>
+            <div className="text-xs text-gray-400 hidden @[300px]:block">EDI</div>
+            <ArrowRight className="h-3.5 w-3.5 @[280px]:h-4 @[280px]:w-4 text-brand-500 shrink-0" />
+            <div className="rounded-lg bg-brand-100 px-2 @[280px]:px-3 py-1.5 @[280px]:py-2 text-xs font-medium text-brand-700">
+              Tu Sistema
+            </div>
           </div>
         </motion.div>
 
@@ -279,24 +308,24 @@ function PedidosVisual() {
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.3 }}
-          className="rounded-lg border border-gray-200 bg-white p-3 shadow-sm"
+          className="rounded-lg border border-gray-200 bg-white p-2 @[280px]:p-3 shadow-sm"
         >
-          <div className="mb-2 flex items-center justify-between">
+          <div className="mb-1.5 @[280px]:mb-2 flex items-center justify-between gap-2">
             <span className="text-xs font-medium text-gray-700">Pedido entrante</span>
-            <span className="rounded bg-emerald-100 px-1.5 py-0.5 text-xs text-emerald-700">
+            <span className="rounded bg-emerald-100 px-1.5 py-0.5 text-xs text-emerald-700 shrink-0">
               Procesado
             </span>
           </div>
-          <div className="space-y-1 text-xs">
-            <div className="flex justify-between">
+          <div className="space-y-0.5 @[280px]:space-y-1 text-xs">
+            <div className="flex justify-between gap-2">
               <span className="text-gray-500">Cliente</span>
-              <span className="font-medium text-gray-700">Restaurante Sol</span>
+              <span className="font-medium text-gray-700 truncate">Restaurante Sol</span>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-2">
               <span className="text-gray-500">Productos</span>
               <span className="font-medium text-gray-700">12 líneas</span>
             </div>
-            <div className="flex justify-between">
+            <div className="flex justify-between gap-2">
               <span className="text-gray-500">Total</span>
               <span className="font-medium text-gray-700">842,30 €</span>
             </div>
@@ -307,7 +336,7 @@ function PedidosVisual() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="mt-3 text-center text-xs text-gray-500"
+          className="mt-2 @[280px]:mt-3 text-center text-xs text-gray-500 hidden @[280px]:block"
         >
           Sin intervención manual
         </motion.div>
@@ -317,37 +346,46 @@ function PedidosVisual() {
 }
 
 function PickingVisual() {
+  const pickingItems = [
+    { product: "Aceite oliva", qty: "480 L", status: "picked" },
+    { product: "Harina trigo", qty: "1.200 kg", status: "picked" },
+    { product: "Conservas veg.", qty: "360 uds", status: "pending" },
+  ];
+
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-4">
+    <div className="@container relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-3 @[280px]:p-4">
       <div className="flex h-full flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-3 rounded-lg border border-gray-200 bg-white p-3 shadow-sm"
+          className="mb-2 @[280px]:mb-3 rounded-lg border border-gray-200 bg-white p-2 @[280px]:p-3 shadow-sm"
         >
-          <div className="mb-2 flex items-center gap-2">
-            <ScanBarcode className="h-4 w-4 text-brand-500" />
+          <div className="mb-1.5 @[280px]:mb-2 flex items-center gap-2">
+            <ScanBarcode className="h-4 w-4 text-brand-500 shrink-0" />
             <span className="text-xs font-medium text-gray-700">Lista de picking</span>
           </div>
-          <div className="space-y-2">
-            {[
-              { product: "Aceite oliva virgen", qty: "480 L", status: "picked" },
-              { product: "Harina de trigo", qty: "1.200 kg", status: "picked" },
-              { product: "Conservas vegetales", qty: "360 uds", status: "pending" },
-            ].map((item, i) => (
-              <div key={i} className="flex items-center justify-between text-xs">
-                <div className="flex items-center gap-2">
+          <div className="space-y-1.5 @[280px]:space-y-2">
+            {pickingItems.slice(0, 2).map((item, i) => (
+              <div key={i} className="flex items-center justify-between gap-2 text-xs">
+                <div className="flex items-center gap-2 min-w-0">
                   <div
                     className={cn(
-                      "h-3 w-3 rounded",
+                      "h-3 w-3 rounded shrink-0",
                       item.status === "picked" ? "bg-emerald-500" : "bg-gray-300"
                     )}
                   />
-                  <span className="text-gray-700">{item.product}</span>
+                  <span className="text-gray-700 truncate">{item.product}</span>
                 </div>
-                <span className="text-gray-500">{item.qty}</span>
+                <span className="text-gray-500 shrink-0 min-w-[50px] text-right">{item.qty}</span>
               </div>
             ))}
+            <div className="hidden @[280px]:flex items-center justify-between gap-2 text-xs">
+              <div className="flex items-center gap-2 min-w-0">
+                <div className="h-3 w-3 rounded shrink-0 bg-gray-300" />
+                <span className="text-gray-700 truncate">{pickingItems[2].product}</span>
+              </div>
+              <span className="text-gray-500 shrink-0 min-w-[50px] text-right">{pickingItems[2].qty}</span>
+            </div>
           </div>
         </motion.div>
 
@@ -355,22 +393,22 @@ function PickingVisual() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="flex items-center justify-between rounded-lg bg-brand-50 px-3 py-2"
+          className="flex items-center justify-between rounded-lg bg-brand-50 px-2 @[280px]:px-3 py-1.5 @[280px]:py-2"
         >
-          <div className="flex items-center gap-2">
-            <ClipboardList className="h-4 w-4 text-brand-600" />
-            <span className="text-xs text-brand-700">Pedido #4521</span>
+          <div className="flex items-center gap-2 min-w-0">
+            <ClipboardList className="h-4 w-4 text-brand-600 shrink-0" />
+            <span className="text-xs text-brand-700 truncate">Pedido #4521</span>
           </div>
-          <span className="text-xs font-medium text-brand-600">67%</span>
+          <span className="text-xs font-medium text-brand-600 shrink-0">67%</span>
         </motion.div>
 
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.6 }}
-          className="mt-3 text-center text-xs text-gray-500"
+          className="hidden @[300px]:block mt-2 @[280px]:mt-3 text-center text-xs text-gray-500"
         >
-          Escanea → Confirma → Listo en ERP
+          Escanea → Confirma → Listo
         </motion.div>
       </div>
     </div>
@@ -378,18 +416,24 @@ function PickingVisual() {
 }
 
 function RutasVisual() {
+  const stops = [
+    { stop: "Restaurante Sol", time: "09:15" },
+    { stop: "Hotel Marina", time: "09:45" },
+    { stop: "Café Central", time: "10:20" },
+  ];
+
   return (
-    <div className="relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-4">
+    <div className="@container relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-3 @[280px]:p-4">
       <div className="flex h-full flex-col justify-center">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
-          className="mb-3 rounded-lg border border-gray-200 bg-white p-3 shadow-sm"
+          className="mb-2 @[280px]:mb-3 rounded-lg border border-gray-200 bg-white p-2 @[280px]:p-3 shadow-sm"
         >
-          <div className="mb-2 flex items-center justify-between">
+          <div className="mb-1.5 @[280px]:mb-2 flex items-center justify-between">
             <span className="text-xs font-medium text-gray-700">Ruta optimizada</span>
             <div className="flex items-center gap-1">
-              <Truck className="h-3.5 w-3.5 text-brand-500" />
+              <Truck className="h-3.5 w-3.5 text-brand-500 shrink-0" />
               <motion.div
                 className="h-2 w-2 rounded-full bg-emerald-500"
                 animate={{ scale: [1, 1.2, 1] }}
@@ -397,20 +441,23 @@ function RutasVisual() {
               />
             </div>
           </div>
-          <div className="space-y-2">
-            {[
-              { stop: "Restaurante Sol", time: "09:15" },
-              { stop: "Hotel Marina", time: "09:45" },
-              { stop: "Café Central", time: "10:20" },
-            ].map((item, i) => (
+          <div className="space-y-1.5 @[280px]:space-y-2">
+            {stops.slice(0, 2).map((item, i) => (
               <div key={i} className="flex items-center gap-2 text-xs">
-                <div className="flex h-5 w-5 items-center justify-center rounded-full bg-brand-100 text-brand-600">
+                <div className="flex h-4 w-4 @[280px]:h-5 @[280px]:w-5 items-center justify-center rounded-full bg-brand-100 text-brand-600 shrink-0 text-xs">
                   {i + 1}
                 </div>
-                <span className="flex-1 text-gray-700">{item.stop}</span>
-                <span className="text-gray-500">{item.time}</span>
+                <span className="flex-1 text-gray-700 truncate">{item.stop}</span>
+                <span className="text-gray-500 shrink-0">{item.time}</span>
               </div>
             ))}
+            <div className="hidden @[300px]:flex items-center gap-2 text-xs">
+              <div className="flex h-4 w-4 @[280px]:h-5 @[280px]:w-5 items-center justify-center rounded-full bg-brand-100 text-brand-600 shrink-0 text-xs">
+                3
+              </div>
+              <span className="flex-1 text-gray-700 truncate">{stops[2].stop}</span>
+              <span className="text-gray-500 shrink-0">{stops[2].time}</span>
+            </div>
           </div>
         </motion.div>
 
@@ -418,15 +465,15 @@ function RutasVisual() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ delay: 0.4 }}
-          className="flex items-center justify-center gap-4"
+          className="flex flex-col @[250px]:flex-row items-center justify-center gap-2 @[250px]:gap-4"
         >
           <div className="text-center">
-            <div className="text-lg font-bold text-emerald-600">-23%</div>
+            <div className="text-base @[250px]:text-lg font-bold text-emerald-600">-23%</div>
             <div className="text-xs text-gray-500">kilómetros</div>
           </div>
-          <div className="h-8 w-px bg-gray-200" />
+          <div className="hidden @[250px]:block h-8 w-px bg-gray-200" />
           <div className="text-center">
-            <div className="text-lg font-bold text-emerald-600">+15%</div>
+            <div className="text-base @[250px]:text-lg font-bold text-emerald-600">+15%</div>
             <div className="text-xs text-gray-500">entregas/día</div>
           </div>
         </motion.div>
@@ -528,7 +575,7 @@ const services: Service[] = [
 function ServiceCard({ service }: { service: Service }) {
   return (
     <div className="group relative overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:border-brand-200 hover:shadow-xl">
-      <div className="aspect-[16/10] w-full overflow-hidden">{service.visual}</div>
+      <div className="min-h-[280px] sm:min-h-0 sm:aspect-[16/10] w-full overflow-hidden">{service.visual}</div>
 
       <div className="p-5">
         <h3 className="font-heading text-lg font-bold text-gray-900">
@@ -687,7 +734,7 @@ export function Services() {
             </p>
             <a
               href="#contacto"
-              className="mt-6 inline-flex items-center gap-2 rounded-lg bg-brand-600 px-6 py-3 font-medium text-white transition-colors hover:bg-brand-700"
+              className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 font-medium text-white transition-colors hover:bg-brand-700"
             >
               Cuéntanos tu caso
               <ArrowRight className="h-4 w-4" />
