@@ -77,20 +77,16 @@ export function Contact() {
       formBody.append('email', formData.email);
       formBody.append('details', formData.details);
 
-      const response = await fetch(webhookUrl, {
+      await fetch(webhookUrl, {
         method: "POST",
+        mode: "no-cors",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
         body: formBody.toString(),
       });
 
-      if (!response.ok) {
-        throw new Error("Error al enviar el formulario");
-      }
-
-      const responseData = await response.text();
-
+      // En modo no-cors no podemos leer la respuesta, asumimos éxito si no hay error de red
       setShowModal(true);
       setFormData({ name: "", email: "", details: "" });
     } catch (error) {
