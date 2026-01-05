@@ -71,14 +71,18 @@ export function Contact() {
 
     try {
       const webhookUrl = "https://n8n.cadlylabs.com/webhook/cadlylabs-form";
-      const payload = JSON.stringify(formData);
+      
+      const formBody = new URLSearchParams();
+      formBody.append('name', formData.name);
+      formBody.append('email', formData.email);
+      formBody.append('details', formData.details);
 
       const response = await fetch(webhookUrl, {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: payload,
+        body: formBody.toString(),
       });
 
       if (!response.ok) {
