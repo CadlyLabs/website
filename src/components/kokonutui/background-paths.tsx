@@ -134,6 +134,7 @@ export const FloatingPaths = memo(function FloatingPaths({
         fill="none"
         preserveAspectRatio="xMidYMid slice"
         viewBox="-2400 -800 4800 1600"
+        suppressHydrationWarning
       >
         <title>Background Paths</title>
         <defs>
@@ -158,6 +159,7 @@ export const FloatingPaths = memo(function FloatingPaths({
               strokeLinecap="round"
               strokeWidth={path.width}
               style={{ opacity: path.opacity }}
+              suppressHydrationWarning
               transition={{
                 ...sharedAnimationProps.transition,
                 y: {
@@ -185,6 +187,7 @@ export const FloatingPaths = memo(function FloatingPaths({
               strokeLinecap="round"
               strokeWidth={path.width}
               style={{ opacity: path.opacity }}
+              suppressHydrationWarning
               transition={{
                 ...sharedAnimationProps.transition,
                 y: {
@@ -212,6 +215,7 @@ export const FloatingPaths = memo(function FloatingPaths({
               strokeLinecap="round"
               strokeWidth={path.width}
               style={{ opacity: path.opacity }}
+              suppressHydrationWarning
               transition={{
                 ...sharedAnimationProps.transition,
                 y: {

@@ -70,20 +70,22 @@ export function Contact() {
     setErrors({});
 
     try {
-      const response = await fetch(
-        "https://n8n.cadlylabs.com/webhook/cadlylabs-form",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
+      const webhookUrl = "https://n8n.cadlylabs.com/webhook/cadlylabs-form";
+      const payload = JSON.stringify(formData);
+
+      const response = await fetch(webhookUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: payload,
+      });
 
       if (!response.ok) {
         throw new Error("Error al enviar el formulario");
       }
+
+      const responseData = await response.text();
 
       setShowModal(true);
       setFormData({ name: "", email: "", details: "" });
@@ -108,7 +110,7 @@ export function Contact() {
 
   return (
     <>
-      <section id="contacto" className="bg-white py-24">
+      <section id="contacto" className="bg-white py-24 relative">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeInView className="text-center">
             <span className="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
@@ -175,8 +177,8 @@ export function Contact() {
             </FadeInView>
 
             <FadeInView delay={0.2}>
-              <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
-                <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8" suppressHydrationWarning>
+                <form onSubmit={handleSubmit} className="space-y-6" suppressHydrationWarning>
                   <div className="space-y-2">
                     <Label htmlFor="name">Nombre</Label>
                     <Input
@@ -186,6 +188,7 @@ export function Contact() {
                       required
                       value={formData.name}
                       onChange={handleInputChange}
+                      suppressHydrationWarning
                       className={cn(
                         errors.name && "border-red-500 focus:ring-red-500"
                       )}
@@ -205,6 +208,7 @@ export function Contact() {
                       required
                       value={formData.email}
                       onChange={handleInputChange}
+                      suppressHydrationWarning
                       className={cn(
                         errors.email && "border-red-500 focus:ring-red-500"
                       )}
@@ -224,6 +228,7 @@ export function Contact() {
                       required
                       value={formData.details}
                       onChange={handleInputChange}
+                      suppressHydrationWarning
                       className={cn(
                         errors.details && "border-red-500 focus:ring-red-500"
                       )}
