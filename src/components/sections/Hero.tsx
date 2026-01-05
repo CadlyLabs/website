@@ -68,26 +68,21 @@ export function Hero() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <MovingBorderButton
-              onClick={() => handleScrollToSection("#modulos")}
+              onClick={() => handleScrollToSection("#contacto")}
               borderRadius="1.5rem"
-              containerClassName="h-12 w-44"
+              containerClassName="h-fit w-fit"
               borderClassName="bg-[radial-gradient(rgb(255,133,50)_40%,transparent_60%)]"
-              className="border-brand-600/20 bg-brand-600 text-sm font-medium text-white hover:bg-brand-700"
+              className="border-brand-600/20 bg-brand-600 text-md font-medium text-white hover:bg-brand-700 cursor-pointer px-5 py-2"
             >
-              Ver soluciones
+              Agendar Consultoría
             </MovingBorderButton>
 
-            <button
-              onClick={() => handleScrollToSection("#contacto")}
-              className="flex h-12 items-center justify-center rounded-3xl border-2 border-gray-300 bg-white/80 px-7 text-sm font-medium text-gray-700 backdrop-blur-sm transition-all hover:border-brand-500 hover:text-brand-600"
-            >
-              Consultoría gratuita
-            </button>
+          
           </motion.div>
         </motion.div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2">
+      <a href="#soluciones" className="absolute bottom-8 left-1/2 -translate-x-1/2">
         <motion.div
           initial={{ opacity: 0, y: -10 }}
           animate={{ opacity: 1, y: 0 }}
@@ -115,7 +110,7 @@ export function Hero() {
             />
           </svg>
         </motion.div>
-      </div>
+      </a>
     </section>
   );
 }

@@ -23,18 +23,18 @@ const results = [
     </FadeInView>
 
     <FadeInView client:visible delay={0.2}>
-      <div class="mt-16 overflow-hidden rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100 lg:grid lg:grid-cols-2 lg:gap-0">
-        <div class="relative aspect-[4/3] lg:aspect-auto">
+      <div class="mt-16 overflow-hidden rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100 shadow-lg lg:grid lg:grid-cols-2 lg:gap-0 lg:items-center">
+        <div class="relative pl-0 lg:pl-4 aspect-[4/3] lg:aspect-auto">
           <img
             src="/images/logos/appcc_demo.avif"
             alt="Plataforma APPCC de Montes del Acebo"
-            class="h-full w-full object-cover"
+            class="w-full h-auto object-contain"
           />
-          <div class="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent lg:bg-gradient-to-r" />
+          <div class="absolute inset-0 " />
         </div>
 
-        <div class="flex flex-col justify-center p-8 lg:p-12">
-          <div class="flex items-center gap-4">
+        <div class="flex flex-col justify-center p-6 sm:p-8 lg:p-12 text-center lg:text-left">
+          <div class="flex items-center justify-center md:justify-start gap-4">
             <img
               src="/images/logos/montes_acebo_logo.avif"
               alt="Montes del Acebo"
@@ -56,11 +56,14 @@ const results = [
             <p class="text-lg font-medium text-gray-900">
               Plataforma APPCC Digital
             </p>
-            <p class="mt-2 text-gray-600">
+            <p class="mt-2 text-gray-600 leading-relaxed">
               Transformamos la gestión de seguridad alimentaria de Montes
               del Acebo con una plataforma integral que automatiza registros,
               genera informes y garantiza el cumplimiento normativo.
             </p>
+            <blockquote class="mt-4 italic text-gray-700 border-l-4 border-brand-500 pl-4">
+              "La implementación de esta plataforma ha revolucionado nuestros procesos de seguridad alimentaria."
+            </blockquote>
           </div>
 
           <div class="mt-8 space-y-3">
@@ -73,8 +76,8 @@ const results = [
           </div>
 
           <div class="mt-8">
-            <button class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-700">
-              Ver caso completo
+            <a href="https://appcc-demo.apps.cadlylabs.com/auth/login" target="_blank" class="inline-flex items-center gap-2 rounded-lg bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-all duration-200 cursor-pointer hover:bg-brand-700 hover:shadow-md">
+              Acceder a la demo
               <svg
                 class="h-4 w-4"
                 fill="none"
@@ -88,7 +91,7 @@ const results = [
                   d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
