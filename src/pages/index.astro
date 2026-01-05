@@ -1,5 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import SkipLink from "@/components/SkipLink.astro";
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
 import { Services } from "@/components/sections/Services";
@@ -12,8 +13,11 @@ import Footer from "@/components/sections/Footer.astro";
 ---
 
 <Layout>
-</html>
-  <main class="relative flex  flex-col scrollbar-custom overflow-y-auto h-dvh overflow-x-hidden">
+  <SkipLink />
+  <main
+    id="main-content"
+    class="relative flex flex-col scrollbar-custom overflow-y-auto h-dvh overflow-x-hidden"
+  >
     <Navbar client:load />
     <Hero client:load />
     <Services client:visible />

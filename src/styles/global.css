@@ -24,10 +24,10 @@
 
 @theme inline {
   /* Typography - Brand Fonts */
-  --font-heading: 'Libre Baskerville', Georgia, serif;
-  --font-body: 'Manrope', system-ui, sans-serif;
-  --font-sans: 'Manrope', system-ui, sans-serif;
-  --font-serif: 'Libre Baskerville', Georgia, serif;
+  --font-heading: "Libre Baskerville", Georgia, serif;
+  --font-body: "Manrope", system-ui, sans-serif;
+  --font-sans: "Manrope", system-ui, sans-serif;
+  --font-serif: "Libre Baskerville", Georgia, serif;
 
   /* Brand Orange Gradient System */
   --color-brand-50: rgb(255, 247, 239);
@@ -173,6 +173,32 @@
   }
   html {
     scroll-behavior: smooth;
+  }
+
+  /* Accessibility: Focus visible styles */
+  *:focus-visible {
+    outline: 3px solid #ff8532;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+
+  /* Accessibility: Improve button and link focus */
+  a:focus-visible,
+  button:focus-visible {
+    outline: 3px solid #ff8532;
+    outline-offset: 2px;
+  }
+
+  /* Accessibility: Respect prefers-reduced-motion */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
   }
 }
 
