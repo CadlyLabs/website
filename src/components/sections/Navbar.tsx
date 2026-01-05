@@ -6,10 +6,9 @@ import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Soluciones", href: "#modulos" },
+  { label: "Soluciones", href: "#soluciones" },
   { label: "Casos de éxito", href: "#casos" },
   { label: "Cómo trabajamos", href: "#proceso" },
-  { label: "Contacto", href: "#contacto" },
 ];
 
 export function Navbar() {
@@ -84,16 +83,16 @@ export function Navbar() {
                 height={40}
                 className="h-8 w-8 md:h-10 md:w-10"
               />
-              <span className="font-heading text-xl font-bold text-gray-900 md:text-2xl">
+              <span className="font-heading text-xl font-bold text-gray-900 ">
                 Cadly Labs
               </span>
             </a>
 
-            <div className="hidden items-center gap-8 md:flex">
+            <div className="hidden items-center align-middle gap-8 md:flex">
               {navItems.map((item) => (
-                <button
-                  key={item.href}
-                  onClick={() => handleNavClick(item.href)}
+                <a
+                href={item.href}
+                key={item.href}
                   className={cn(
                     "text-sm font-medium transition-colors hover:text-brand-600",
                     activeSection === item.href
@@ -102,11 +101,11 @@ export function Navbar() {
                   )}
                 >
                   {item.label}
-                </button>
+                </a>
               ))}
               <button
                 onClick={() => handleNavClick("#contacto")}
-                className="rounded-full bg-brand-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-700"
+                className="rounded-full bg-brand-600 px-3 py-1 text-sm font-medium text-white transition-colors hover:bg-brand-700 cursor-pointer "
               >
                 Agendar consultoría
               </button>
