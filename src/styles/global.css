@@ -2,6 +2,26 @@
 
 @custom-variant dark (&:is(.dark *));
 
+.scrollbar-custom {
+  scrollbar-width: thin;
+  scrollbar-color: #ff8532 #ffffff;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #ffffff;
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #ff8532;
+  border-radius: 9999px;
+  border: 2px solid #ffffff;
+}
+
 @theme inline {
   /* Typography - Brand Fonts */
   --font-heading: 'Libre Baskerville', Georgia, serif;

@@ -17,8 +17,12 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
+    const main = document.querySelector("main");
+    const scrollElement = main || window;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const scrollTop = main ? main.scrollTop : window.scrollY;
+      setIsScrolled(scrollTop > 20);
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
@@ -36,11 +40,11 @@ export function Navbar() {
     const sections = document.querySelectorAll("section[id]");
     sections.forEach((section) => observer.observe(section));
 
-    window.addEventListener("scroll", handleScroll);
+    scrollElement.addEventListener("scroll", handleScroll);
     handleScroll();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      scrollElement.removeEventListener("scroll", handleScroll);
       observer.disconnect();
     };
   }, []);
@@ -91,8 +95,8 @@ export function Navbar() {
             <div className="hidden items-center align-middle gap-8 md:flex">
               {navItems.map((item) => (
                 <a
-                href={item.href}
-                key={item.href}
+                  href={item.href}
+                  key={item.href}
                   className={cn(
                     "text-sm font-medium transition-colors hover:text-brand-600",
                     activeSection === item.href
@@ -179,7 +183,7 @@ export function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.05 }}
                   onClick={() => handleNavClick("#contacto")}
-                   className="mt-4 rounded-full bg-brand-600 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-brand-700"
+                  className="mt-4 rounded-full bg-brand-600 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-brand-700"
                 >
                   Agendar consultoría
                 </motion.button>
