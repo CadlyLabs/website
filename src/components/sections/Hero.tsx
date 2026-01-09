@@ -70,14 +70,19 @@ export function Hero() {
             <MovingBorderButton
               onClick={() => handleScrollToSection("#contacto")}
               borderRadius="1.5rem"
-              containerClassName="h-fit w-fit"
+              containerClassName="h-12 w-fit"
               borderClassName="bg-[radial-gradient(rgb(255,133,50)_40%,transparent_60%)]"
-              className="border-brand-600/20 bg-brand-600 text-md font-medium text-white hover:bg-brand-700 cursor-pointer px-5 py-2"
+              className="border-brand-600/20 bg-brand-600 text-sm font-medium text-white hover:bg-brand-700 cursor-pointer px-6 py-3"
             >
               Agendar Consultoría
             </MovingBorderButton>
 
-          
+            <button
+              onClick={() => handleScrollToSection("#soluciones")}
+              className="flex h-12 items-center justify-center rounded-3xl border-2 border-gray-300 bg-white/80 px-6 text-sm font-medium text-gray-700 backdrop-blur-sm transition-all hover:border-brand-500 hover:text-brand-600"
+            >
+              Ver Soluciones
+            </button>
           </motion.div>
         </motion.div>
       </div>

@@ -250,19 +250,18 @@ function ERPIntegrationVisual() {
           <ArrowRightIcon className="h-4 w-4 @[250px]:h-5 @[250px]:w-5 text-brand-500 shrink-0" />
 
           <div className="relative h-10 w-14 @[250px]:h-14 @[250px]:w-20 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-            {ERP_LOGOS.map((logo, index) => (
-              <img
-                key={logo.name}
-                src={logo.src}
-                alt={logo.name}
-                className="absolute inset-0 m-auto h-6 @[250px]:h-8 max-w-10 @[250px]:max-w-14 object-contain transition-opacity duration-300"
-                style={{
-                  opacity: currentIndex === index ? 1 : 0,
-                  zIndex: currentIndex === index ? 1 : 0,
-                }}
-                loading="eager"
+            <AnimatePresence mode="wait">
+              <motion.img
+                key={currentIndex}
+                src={ERP_LOGOS[currentIndex].src}
+                alt={ERP_LOGOS[currentIndex].name}
+                className="absolute inset-0 m-auto h-6 @[250px]:h-8 max-w-10 @[250px]:max-w-14 object-contain"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.3 }}
               />
-            ))}
+            </AnimatePresence>
           </div>
         </div>
 
