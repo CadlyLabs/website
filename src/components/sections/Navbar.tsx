@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { ListIcon, XIcon } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
@@ -118,9 +118,9 @@ export function Navbar() {
               aria-label="Toggle menu"
             >
               {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
+                <XIcon className="h-6 w-6" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <ListIcon className="h-6 w-6" />
               )}
             </button>
           </div>
@@ -154,7 +154,7 @@ export function Navbar() {
                   className="rounded-lg p-2 text-gray-600 hover:bg-gray-100"
                   aria-label="Close menu"
                 >
-                  <X className="h-6 w-6" />
+                  <XIcon className="h-6 w-6" />
                 </button>
               </div>
               <nav className="flex flex-col p-4">

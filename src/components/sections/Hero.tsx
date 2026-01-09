@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
-import { Sparkles } from "lucide-react";
+import { SparkleIcon } from "@phosphor-icons/react";
 import { Button as MovingBorderButton } from "@/components/ui/moving-border";
 import { FloatingPaths } from "@/components/kokonutui/background-paths";
 
@@ -35,7 +35,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0 }}
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
-              <Sparkles className="h-4 w-4" />
+              <SparkleIcon className="h-4 w-4" />
               Inteligencia Artificial para Operativa Real
             </span>
           </motion.div>

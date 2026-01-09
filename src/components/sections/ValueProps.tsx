@@ -1,6 +1,6 @@
 "use client";
 
-import { Clock, TrendingUp, Target, Eye } from "lucide-react";
+import { ClockIcon, TrendUpIcon, CrosshairIcon, EyeIcon } from "@phosphor-icons/react";
 import { motion, useMotionValue, useTransform } from "motion/react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
@@ -24,7 +24,7 @@ const benefits: Benefit[] = [
       "Tu equipo dedica su tiempo a lo que importa, no a picar datos o buscar documentos.",
     metric: "70%",
     metricLabel: "reducción de tiempo",
-    icon: Clock,
+    icon: ClockIcon,
     color: "from-brand-500 to-brand-600",
   },
   {
@@ -34,7 +34,7 @@ const benefits: Benefit[] = [
       "Retorno visible desde el primer mes. Sin costes ocultos, sin sorpresas.",
     metric: "3x",
     metricLabel: "ROI primer año",
-    icon: TrendingUp,
+    icon: TrendUpIcon,
     color: "from-brand-500 to-brand-600",
   },
   {
@@ -44,7 +44,7 @@ const benefits: Benefit[] = [
       "Elimina errores de entrada manual. Información consistente en todos tus sistemas.",
     metric: "95%",
     metricLabel: "precisión de datos",
-    icon: Target,
+    icon: CrosshairIcon,
     color: "from-brand-500 to-brand-600",
   },
   {
@@ -54,7 +54,7 @@ const benefits: Benefit[] = [
       "Dashboard en tiempo real. Ve exactamente qué pasa en tu negocio en cualquier momento.",
     metric: "24/7",
     metricLabel: "visibilidad",
-    icon: Eye,
+    icon: EyeIcon,
     color: "from-brand-500 to-brand-600",
   },
 ];

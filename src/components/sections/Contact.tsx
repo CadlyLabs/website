@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Mail, Phone, Clock, UserCheck, Shield } from "lucide-react";
+import { EnvelopeIcon, PhoneIcon, ClockIcon, UserCheckIcon, ShieldIcon } from "@phosphor-icons/react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
@@ -15,9 +15,9 @@ interface FormErrors {
 }
 
 const trustBadges = [
-  { icon: Clock, text: "Respuesta en 24h" },
-  { icon: UserCheck, text: "Análisis personalizado" },
-  { icon: Shield, text: "Sin compromiso" },
+  { icon: ClockIcon, text: "Respuesta en 24h" },
+  { icon: UserCheckIcon, text: "Análisis personalizado" },
+  { icon: ShieldIcon, text: "Sin compromiso" },
 ];
 
 function validateEmail(email: string): boolean {
@@ -105,7 +105,7 @@ export function Contact() {
                 className="group flex flex-col items-center gap-3 rounded-3xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-brand-200 hover:shadow-lg"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-50 transition-colors group-hover:bg-brand-100">
-                  <Mail className="h-7 w-7 text-brand-600" />
+                  <EnvelopeIcon className="h-7 w-7 text-brand-600" />
                 </div>
                 <div>
                   <p className="font-heading text-lg font-bold text-gray-900">
@@ -122,7 +122,7 @@ export function Contact() {
                 className="group flex flex-col items-center gap-3 rounded-3xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-brand-200 hover:shadow-lg"
               >
                 <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-50 transition-colors group-hover:bg-brand-100">
-                  <Phone className="h-7 w-7 text-brand-600" />
+                  <PhoneIcon className="h-7 w-7 text-brand-600" />
                 </div>
                 <div>
                   <p className="font-heading text-lg font-bold text-gray-900">

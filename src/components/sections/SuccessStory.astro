@@ -1,5 +1,5 @@
 ---
-import { CheckCircle2 } from "lucide-react";
+import { CheckCircleIcon } from "@phosphor-icons/react";
 import { FadeInView } from "@/components/animations/FadeInView";
 
 const results = [
@@ -66,7 +66,7 @@ const results = [
           <div class="mt-8 space-y-3">
             {results.map((result) => (
               <div class="flex items-start gap-3">
-                <CheckCircle2 className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-500" />
+                <CheckCircleIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-500" />
                 <span class="text-sm text-gray-700">{result}</span>
               </div>
             ))}

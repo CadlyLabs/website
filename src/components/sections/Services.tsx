@@ -1,16 +1,16 @@
 "use client";
 
 import {
-  Check,
-  AlertCircle,
-  FileSearch,
-  ArrowRight,
-  Mail,
-  MessageCircle,
-  Truck,
-  ScanBarcode,
-  ClipboardList,
-} from "lucide-react";
+  CheckIcon,
+  WarningCircleIcon,
+  FileMagnifyingGlassIcon,
+  ArrowRightIcon,
+  EnvelopeIcon,
+  ChatCircleIcon,
+  TruckIcon,
+  BarcodeIcon,
+  ClipboardTextIcon,
+} from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "motion/react";
 import { useState, useEffect } from "react";
 import { cn } from "@/lib/utils";
@@ -89,8 +89,8 @@ function APPCCDashboardVisual() {
                       : "bg-gray-100"
                 )}
               >
-                {item.done && <Check className="h-3 w-3" />}
-                {item.pending && <AlertCircle className="h-3 w-3" />}
+                {item.done && <CheckIcon className="h-3 w-3" />}
+                {item.pending && <WarningCircleIcon className="h-3 w-3" />}
               </div>
               <span className="text-xs text-gray-600 truncate">{item.label}</span>
             </div>
@@ -98,7 +98,7 @@ function APPCCDashboardVisual() {
           {/* Show 4th item only on larger containers */}
           <div className="hidden @[320px]:flex items-center gap-2">
             <div className="flex h-4 w-4 shrink-0 items-center justify-center rounded bg-amber-100 text-amber-600">
-              <AlertCircle className="h-3 w-3" />
+              <WarningCircleIcon className="h-3 w-3" />
             </div>
             <span className="text-xs text-gray-600 truncate">{checklistItems[3].label}</span>
             <span className="ml-auto rounded bg-amber-100 px-1.5 py-0.5 text-xs font-medium text-amber-700 hidden @[380px]:inline">
@@ -171,7 +171,7 @@ function DocumentScannerVisual() {
         className="rounded-lg border border-emerald-200 bg-emerald-50 p-2 @[280px]:p-3"
       >
         <div className="mb-1.5 @[280px]:mb-2 flex items-center gap-1.5 text-xs font-medium text-emerald-700">
-          <FileSearch className="h-3.5 w-3.5 shrink-0" />
+          <FileMagnifyingGlassIcon className="h-3.5 w-3.5 shrink-0" />
           Datos extraídos
         </div>
         <div className="space-y-0.5 @[280px]:space-y-1 text-xs">
@@ -235,7 +235,7 @@ function ERPIntegrationVisual() {
             />
           </div>
           
-          <ArrowRight className="h-4 w-4 @[250px]:h-5 @[250px]:w-5 text-brand-500 shrink-0" />
+          <ArrowRightIcon className="h-4 w-4 @[250px]:h-5 @[250px]:w-5 text-brand-500 shrink-0" />
 
           <div className="relative h-10 w-14 @[250px]:h-14 @[250px]:w-20 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
             <AnimatePresence mode="wait">
@@ -279,25 +279,25 @@ function PedidosVisual() {
         >
           <div className="flex @[220px]:hidden items-center gap-1.5">
             <div className="flex h-6 w-6 items-center justify-center rounded bg-gray-100 shrink-0">
-              <Mail className="h-3 w-3 text-gray-500" />
+              <EnvelopeIcon className="h-3 w-3 text-gray-500" />
             </div>
             <div className="flex h-6 w-6 items-center justify-center rounded bg-green-100 shrink-0">
-              <MessageCircle className="h-3 w-3 text-green-600" />
+              <ChatCircleIcon className="h-3 w-3 text-green-600" />
             </div>
-            <ArrowRight className="h-2.5 w-2.5 text-brand-500 shrink-0" />
+            <ArrowRightIcon className="h-2.5 w-2.5 text-brand-500 shrink-0" />
             <div className="rounded bg-brand-100 px-1.5 py-0.5 text-[10px] font-medium text-brand-700">
               ERP
             </div>
           </div>
           <div className="hidden @[220px]:flex items-center gap-2 @[280px]:gap-3">
             <div className="flex h-8 w-8 @[280px]:h-10 @[280px]:w-10 items-center justify-center rounded-lg bg-gray-100 shrink-0">
-              <Mail className="h-4 w-4 @[280px]:h-5 @[280px]:w-5 text-gray-500" />
+              <EnvelopeIcon className="h-4 w-4 @[280px]:h-5 @[280px]:w-5 text-gray-500" />
             </div>
             <div className="flex h-8 w-8 @[280px]:h-10 @[280px]:w-10 items-center justify-center rounded-lg bg-green-100 shrink-0">
-              <MessageCircle className="h-4 w-4 @[280px]:h-5 @[280px]:w-5 text-green-600" />
+              <ChatCircleIcon className="h-4 w-4 @[280px]:h-5 @[280px]:w-5 text-green-600" />
             </div>
             <div className="text-xs text-gray-400 hidden @[300px]:block">EDI</div>
-            <ArrowRight className="h-3.5 w-3.5 @[280px]:h-4 @[280px]:w-4 text-brand-500 shrink-0" />
+            <ArrowRightIcon className="h-3.5 w-3.5 @[280px]:h-4 @[280px]:w-4 text-brand-500 shrink-0" />
             <div className="rounded-lg bg-brand-100 px-2 @[280px]:px-3 py-1.5 @[280px]:py-2 text-xs font-medium text-brand-700">
               Tu Sistema
             </div>
@@ -361,7 +361,7 @@ function PickingVisual() {
           className="mb-2 @[280px]:mb-3 rounded-lg border border-gray-200 bg-white p-2 @[280px]:p-3 shadow-sm"
         >
           <div className="mb-1.5 @[280px]:mb-2 flex items-center gap-2">
-            <ScanBarcode className="h-4 w-4 text-brand-500 shrink-0" />
+            <BarcodeIcon className="h-4 w-4 text-brand-500 shrink-0" />
             <span className="text-xs font-medium text-gray-700">Lista de picking</span>
           </div>
           <div className="space-y-1.5 @[280px]:space-y-2">
@@ -396,7 +396,7 @@ function PickingVisual() {
           className="flex items-center justify-between rounded-lg bg-brand-50 px-2 @[280px]:px-3 py-1.5 @[280px]:py-2"
         >
           <div className="flex items-center gap-2 min-w-0">
-            <ClipboardList className="h-4 w-4 text-brand-600 shrink-0" />
+            <ClipboardTextIcon className="h-4 w-4 text-brand-600 shrink-0" />
             <span className="text-xs text-brand-700 truncate">Pedido #4521</span>
           </div>
           <span className="text-xs font-medium text-brand-600 shrink-0">67%</span>
@@ -433,7 +433,7 @@ function RutasVisual() {
           <div className="mb-1.5 @[280px]:mb-2 flex items-center justify-between">
             <span className="text-xs font-medium text-gray-700">Ruta optimizada</span>
             <div className="flex items-center gap-1">
-              <Truck className="h-3.5 w-3.5 text-brand-500 shrink-0" />
+              <TruckIcon className="h-3.5 w-3.5 text-brand-500 shrink-0" />
               <motion.div
                 className="h-2 w-2 rounded-full bg-emerald-500"
                 animate={{ scale: [1, 1.2, 1] }}
@@ -594,7 +594,7 @@ function ServiceCard({ service }: { service: Service }) {
               key={i}
               className="flex items-center gap-2 text-sm text-gray-600"
             >
-              <Check className="h-3.5 w-3.5 flex-shrink-0 text-brand-500" />
+              <CheckIcon className="h-3.5 w-3.5 flex-shrink-0 text-brand-500" />
               {benefit}
             </li>
           ))}
@@ -631,7 +631,7 @@ function SecondaryServiceCard({
                 key={i}
                 className="flex items-center gap-2 text-sm text-gray-600"
               >
-                <Check className="h-3.5 w-3.5 flex-shrink-0 text-brand-500" />
+                <CheckIcon className="h-3.5 w-3.5 flex-shrink-0 text-brand-500" />
                 {benefit}
               </li>
             ))}
@@ -660,7 +660,7 @@ function SecondaryServiceCard({
               key={i}
               className="flex items-center gap-2 text-sm text-gray-600"
             >
-              <Check className="h-3 w-3 flex-shrink-0 text-brand-500" />
+              <CheckIcon className="h-3 w-3 flex-shrink-0 text-brand-500" />
               {benefit}
             </li>
           ))}
@@ -737,7 +737,7 @@ export function Services() {
               className="mt-6 inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 font-medium text-white transition-colors hover:bg-brand-700"
             >
               Cuéntanos tu caso
-              <ArrowRight className="h-4 w-4" />
+              <ArrowRightIcon className="h-4 w-4" />
             </a>
           </div>
         </FadeInView>
