@@ -6,10 +6,9 @@ import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Soluciones", href: "#modulos" },
+  { label: "Soluciones", href: "#soluciones" },
   { label: "Casos de éxito", href: "#casos" },
   { label: "Cómo trabajamos", href: "#proceso" },
-  { label: "Contacto", href: "#contacto" },
 ];
 
 export function Navbar() {
@@ -18,8 +17,12 @@ export function Navbar() {
   const [activeSection, setActiveSection] = useState("");
 
   useEffect(() => {
+    const main = document.querySelector("main");
+    const scrollElement = main || window;
+
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      const scrollTop = main ? main.scrollTop : window.scrollY;
+      setIsScrolled(scrollTop > 20);
     };
 
     const observerCallback = (entries: IntersectionObserverEntry[]) => {
@@ -37,11 +40,11 @@ export function Navbar() {
     const sections = document.querySelectorAll("section[id]");
     sections.forEach((section) => observer.observe(section));
 
-    window.addEventListener("scroll", handleScroll);
+    scrollElement.addEventListener("scroll", handleScroll);
     handleScroll();
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      scrollElement.removeEventListener("scroll", handleScroll);
       observer.disconnect();
     };
   }, []);
@@ -84,16 +87,16 @@ export function Navbar() {
                 height={40}
                 className="h-8 w-8 md:h-10 md:w-10"
               />
-              <span className="font-heading text-xl font-bold text-gray-900 md:text-2xl">
+              <span className="font-heading text-xl font-bold text-gray-900 ">
                 Cadly Labs
               </span>
             </a>
 
-            <div className="hidden items-center gap-8 md:flex">
+            <div className="hidden items-center align-middle gap-8 md:flex">
               {navItems.map((item) => (
-                <button
+                <a
+                  href={item.href}
                   key={item.href}
-                  onClick={() => handleNavClick(item.href)}
                   className={cn(
                     "text-sm font-medium transition-colors hover:text-brand-600",
                     activeSection === item.href
@@ -102,11 +105,11 @@ export function Navbar() {
                   )}
                 >
                   {item.label}
-                </button>
+                </a>
               ))}
               <button
                 onClick={() => handleNavClick("#contacto")}
-                className="rounded-full bg-brand-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-700"
+                className="rounded-full bg-brand-600 px-3 py-1 text-sm font-medium text-white transition-colors hover:bg-brand-700 cursor-pointer "
               >
                 Agendar consultoría
               </button>
@@ -180,7 +183,7 @@ export function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.05 }}
                   onClick={() => handleNavClick("#contacto")}
-                   className="mt-4 rounded-full bg-brand-600 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-brand-700"
+                  className="mt-4 rounded-full bg-brand-600 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-brand-700"
                 >
                   Agendar consultoría
                 </motion.button>

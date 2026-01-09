@@ -1,0 +1,49 @@
+---
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  name: "Cadly Labs",
+  url: "https://cadlylabs.com",
+  logo: "https://cadlylabs.com/favicon.svg",
+  description:
+    "Automatización de procesos con IA para empresas. Soluciones inteligentes para logística, farmacia e industria.",
+  address: {
+    "@type": "PostalAddress",
+    addressCountry: "ES",
+  },
+  sameAs: [],
+};
+
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  name: "Cadly Labs",
+  url: "https://cadlylabs.com",
+  description:
+    "Automatiza el trabajo manual que tu sistema de gestión no puede hacer. Sin cambiar de ERP, sin procesos traumáticos.",
+  inLanguage: "es-ES",
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  itemListElement: [
+    {
+      "@type": "ListItem",
+      position: 1,
+      name: "Inicio",
+      item: "https://cadlylabs.com",
+    },
+  ],
+};
+---
+
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(organizationSchema)}
+/>
+<script type="application/ld+json" set:html={JSON.stringify(websiteSchema)} />
+<script
+  type="application/ld+json"
+  set:html={JSON.stringify(breadcrumbSchema)}
+/>

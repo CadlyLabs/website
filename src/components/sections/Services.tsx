@@ -12,7 +12,7 @@ import {
   ClipboardTextIcon,
 } from "@phosphor-icons/react";
 import { motion, AnimatePresence } from "motion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { cn } from "@/lib/utils";
 import { FadeInView } from "@/components/animations/FadeInView";
 
@@ -24,6 +24,14 @@ const ERP_LOGOS = [
   { name: "Sage", src: "/images/erps_logos/sage.png" },
   { name: "Odoo", src: "/images/erps_logos/odoo.png" },
 ];
+
+// Preload images once at module level to prevent repeated requests
+if (typeof window !== 'undefined') {
+  ERP_LOGOS.forEach((logo) => {
+    const img = new Image();
+    img.src = logo.src;
+  });
+}
 
 function APPCCDashboardVisual() {
   const checklistItems = [
@@ -136,6 +144,8 @@ function DocumentScannerVisual() {
     { label: "IVA", value: "320,81 €" },
     { label: "Total", value: "1.847,50 €" },
   ];
+  
+  const erpLogosToShow = useMemo(() => ERP_LOGOS.slice(0, 3), []);
 
   return (
     <div className="@container relative h-full w-full overflow-hidden rounded-xl bg-gradient-to-br from-gray-50 to-gray-100 p-3 @[280px]:p-4">
@@ -198,12 +208,13 @@ function DocumentScannerVisual() {
       >
         <span className="text-xs text-gray-400 hidden @[320px]:inline">Sincroniza con</span>
         <div className="flex items-center gap-1.5 @[320px]:gap-2">
-          {ERP_LOGOS.slice(0, 3).map((erp, i) => (
+          {erpLogosToShow.map((erp, i) => (
             <img
               key={i}
               src={erp.src}
               alt={erp.name}
               className="h-3.5 @[320px]:h-4 w-auto opacity-60 grayscale"
+              loading="lazy"
             />
           ))}
           <span className="text-xs text-gray-400">+más</span>
@@ -232,24 +243,26 @@ function ERPIntegrationVisual() {
               src="/images/logos/cadly_logo.avif" 
               alt="Cadly" 
               className="h-6 w-6 @[250px]:h-8 @[250px]:w-8 object-contain"
+              loading="eager"
             />
           </div>
           
           <ArrowRightIcon className="h-4 w-4 @[250px]:h-5 @[250px]:w-5 text-brand-500 shrink-0" />
 
           <div className="relative h-10 w-14 @[250px]:h-14 @[250px]:w-20 overflow-hidden rounded-xl border border-gray-200 bg-white shadow-sm">
-            <AnimatePresence mode="wait">
-              <motion.img
-                key={currentIndex}
-                src={ERP_LOGOS[currentIndex].src}
-                alt={ERP_LOGOS[currentIndex].name}
-                className="absolute inset-0 m-auto h-6 @[250px]:h-8 max-w-10 @[250px]:max-w-14 object-contain"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
+            {ERP_LOGOS.map((logo, index) => (
+              <img
+                key={logo.name}
+                src={logo.src}
+                alt={logo.name}
+                className="absolute inset-0 m-auto h-6 @[250px]:h-8 max-w-10 @[250px]:max-w-14 object-contain transition-opacity duration-300"
+                style={{
+                  opacity: currentIndex === index ? 1 : 0,
+                  zIndex: currentIndex === index ? 1 : 0,
+                }}
+                loading="eager"
               />
-            </AnimatePresence>
+            ))}
           </div>
         </div>
 
