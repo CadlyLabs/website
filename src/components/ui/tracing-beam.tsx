@@ -14,14 +14,40 @@ interface TracingBeamProps {
   markerPositions?: number[];
 }
 
+function getScrollParent(element: HTMLElement | null): HTMLElement | null {
+  if (!element) return null;
+
+  let parent = element.parentElement;
+  while (parent) {
+    const style = getComputedStyle(parent);
+    const overflowY = style.overflowY;
+    if (overflowY === 'auto' || overflowY === 'scroll') {
+      return parent;
+    }
+    parent = parent.parentElement;
+  }
+  return null;
+}
+
 export const TracingBeam = ({
   children,
   className,
   markerPositions = [],
 }: TracingBeamProps) => {
   const ref = useRef<HTMLDivElement>(null);
+  const containerRef = useRef<HTMLElement | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    if (ref.current) {
+      containerRef.current = getScrollParent(ref.current);
+      setMounted(true);
+    }
+  }, []);
+
   const { scrollYProgress } = useScroll({
     target: ref,
+    container: containerRef,
     offset: ["start center", "end center"],
   });
 
