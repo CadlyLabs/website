@@ -49,14 +49,14 @@ export function Hero() {
             El papeleo de siempre, resuelto de una vez.
           </motion.h1>
 
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mx-auto mt-6 max-w-2xl text-lg text-gray-600 sm:text-xl"
-          >
-            Herramientas diseñadas para la industria alimentaria española. APPCC digital, trazabilidad por lote y gestión documental — todo en un sistema que tú controlas.
-          </motion.p>
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="mx-auto mt-6 max-w-2xl text-lg text-gray-600 sm:text-xl"
+            >
+              Software que tu equipo usa desde el primer día. APPCC digital, trazabilidad por lote y documentación — todo en un sistema que tú manejas.
+            </motion.p>
 
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -71,7 +71,7 @@ export function Hero() {
               borderClassName="bg-[radial-gradient(rgb(255,133,50)_40%,transparent_60%)]"
               className="border-brand-600/20 bg-brand-600 text-sm font-medium text-white hover:bg-brand-700 cursor-pointer px-6 py-3"
             >
-              Descubre cómo te ayudamos
+              Ver las herramientas
             </MovingBorderButton>
 
             <button

@@ -103,7 +103,7 @@ export function Contact() {
   ) {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    if (errors[name as keyof FormErrors]) {
+    if (name in errors && errors[name as keyof FormErrors]) {
       setErrors((prev) => ({ ...prev, [name]: undefined }));
     }
   }
@@ -264,6 +264,7 @@ export function Contact() {
           <div className="relative mx-4 max-w-md rounded-3xl border border-gray-200 bg-white p-8 shadow-lg">
             <button
               onClick={() => setShowModal(false)}
+              aria-label="Cerrar"
               className="absolute right-4 top-4 text-gray-400 hover:text-gray-600"
             >
               <X className="h-6 w-6" />
