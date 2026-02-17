@@ -36,7 +36,7 @@ export function Hero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
               <SparkleIcon className="h-4 w-4" />
-              Inteligencia Artificial para Operativa Real
+              Automatización para la Industria Alimentaria
             </span>
           </motion.div>
 
@@ -46,8 +46,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-8 font-heading text-4xl font-semibold leading-tight text-gray-900 sm:text-5xl md:text-6xl"
           >
-            Automatiza el trabajo manual que tu sistema de gestión no puede
-            hacer
+            Dedícate a tu producto. Nosotros nos encargamos del papeleo.
           </motion.h1>
 
           <motion.p
@@ -56,9 +55,8 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mx-auto mt-6 max-w-2xl text-lg text-gray-600 sm:text-xl"
           >
-            Sin cambiar de ERP, sin procesos traumáticos. Añadimos capas de
-            inteligencia a tus sistemas actuales para que tu equipo se centre
-            en lo que importa.
+            Automatizamos el APPCC, la trazabilidad y la gestión documental
+            para que tú te centres en la calidad de tu producto.
           </motion.p>
 
           <motion.div
@@ -68,20 +66,20 @@ export function Hero() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <MovingBorderButton
-              onClick={() => handleScrollToSection("#contacto")}
+              onClick={() => handleScrollToSection("#soluciones")}
               borderRadius="1.5rem"
               containerClassName="h-12 w-fit"
               borderClassName="bg-[radial-gradient(rgb(255,133,50)_40%,transparent_60%)]"
               className="border-brand-600/20 bg-brand-600 text-sm font-medium text-white hover:bg-brand-700 cursor-pointer px-6 py-3"
             >
-              Agendar Consultoría
+              Descubre cómo te ayudamos
             </MovingBorderButton>
 
             <button
-              onClick={() => handleScrollToSection("#soluciones")}
+              onClick={() => handleScrollToSection("#contacto")}
               className="flex h-12 items-center justify-center rounded-3xl border-2 border-gray-300 bg-white/80 px-6 text-sm font-medium text-gray-700 backdrop-blur-sm transition-all hover:border-brand-500 hover:text-brand-600"
             >
-              Ver Soluciones
+              Habla con nosotros
             </button>
           </motion.div>
         </motion.div>
