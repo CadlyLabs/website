@@ -117,10 +117,10 @@ export function Contact() {
               Contacto
             </span>
             <h2 className="mt-4 font-heading text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
-              ¿Listo para optimizar tu operativa?
+              ¿Hablamos de tu negocio?
             </h2>
             <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-              Cuéntanos tu situación. Sin presiones, sin letra pequeña.
+              Cuéntanos qué te quita más tiempo en el día a día. Una llamada de 20 minutos para ver si podemos ayudarte.
             </p>
           </FadeInView>
 
@@ -223,7 +223,7 @@ export function Contact() {
                     <Textarea
                       id="details"
                       name="details"
-                      placeholder="¿Qué procesos te gustaría automatizar? ¿Qué sistemas usáis actualmente?"
+                      placeholder="¿Qué es lo que más tiempo te quita? ¿Cómo lleváis el APPCC y la documentación?"
                       rows={4}
                       required
                       value={formData.details}

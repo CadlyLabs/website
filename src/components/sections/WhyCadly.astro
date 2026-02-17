@@ -1,35 +1,35 @@
 ---
-import { CpuIcon, PackageIcon, ChartLineIcon, WrenchIcon } from "@phosphor-icons/react";
+import { StorefrontIcon, PlugsConnectedIcon, ClockIcon, ShieldCheckIcon } from "@phosphor-icons/react";
 import { FadeInView } from "@/components/animations/FadeInView";
 
 const differentiators = [
   {
-    id: "ai-native",
-    title: "AI-Native desde el día uno",
+    id: "sector",
+    title: "Conocemos tu sector",
     description:
-      "No somos una consultora tradicional que añadió IA. Nacimos en la era de la inteligencia artificial y la usamos en cada proyecto.",
-    Icon: CpuIcon,
+      "Nuestro cofundador tenía una sala de despiece. No somos consultores adivinando — conocemos el día a día de la industria alimentaria.",
+    Icon: StorefrontIcon,
   },
   {
-    id: "product",
-    title: "Producto sobre proyectos",
+    id: "no-migration",
+    title: "Sin cambiar lo que ya funciona",
     description:
-      "Construimos módulos reutilizables que desplegamos rápido. No reinventamos la rueda en cada cliente.",
-    Icon: PackageIcon,
+      "Nos integramos con tu ERP, tu Excel, tu forma de trabajar. Añadimos, no sustituimos.",
+    Icon: PlugsConnectedIcon,
   },
   {
-    id: "roi",
-    title: "Enfoque en ROI",
+    id: "fast",
+    title: "Resultados en semanas, no meses",
     description:
-      "Cada propuesta incluye métricas de éxito claras. Si no ves resultados, no tiene sentido.",
-    Icon: ChartLineIcon,
+      "Primera puesta en marcha en 2-4 semanas. Si no ves valor, lo dejamos.",
+    Icon: ClockIcon,
   },
   {
-    id: "technical",
-    title: "Experiencia técnica real",
+    id: "inspection",
+    title: "Siempre listo para la inspección",
     description:
-      "Ingenieros que han trabajado en empresas de todos los tamaños. Sabemos lo que funciona y lo que no.",
-    Icon: WrenchIcon,
+      "¿Auditoría sorpresa? 2 clics para tener todo listo. Trazabilidad completa, registros al día.",
+    Icon: ShieldCheckIcon,
   },
 ];
 ---
@@ -38,11 +38,10 @@ const differentiators = [
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
     <FadeInView client:visible className="text-center">
       <h2 class="font-heading text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
-        IA de verdad. Resultados en semanas.
+        Por qué empresas alimentarias confían en nosotros
       </h2>
       <p class="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-        Fundada por ingenieros para resolver problemas reales de operativa,
-        no para vender consultoría interminable.
+        Nacimos resolviendo los problemas que tú vives cada día en tu negocio.
       </p>
     </FadeInView>
 
