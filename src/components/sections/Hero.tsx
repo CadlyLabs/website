@@ -46,7 +46,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-8 font-heading text-4xl font-semibold leading-tight text-gray-900 sm:text-5xl md:text-6xl"
           >
-            Dedícate a tu producto. Nosotros nos encargamos del papeleo.
+            El papeleo de siempre, resuelto de una vez.
           </motion.h1>
 
           <motion.p
@@ -55,8 +55,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mx-auto mt-6 max-w-2xl text-lg text-gray-600 sm:text-xl"
           >
-            Automatizamos el APPCC, la trazabilidad y la gestión documental
-            para que tú te centres en la calidad de tu producto.
+            Herramientas diseñadas para la industria alimentaria española. APPCC digital, trazabilidad por lote y gestión documental — todo en un sistema que tú controlas.
           </motion.p>
 
           <motion.div
