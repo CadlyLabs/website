@@ -4,10 +4,6 @@ import {
   CheckIcon,
   WarningCircleIcon,
   FileMagnifyingGlassIcon,
-  ShoppingCartIcon,
-  PackageIcon,
-  TruckIcon,
-  PlugsConnectedIcon,
 } from "@phosphor-icons/react";
 import { motion } from "motion/react";
 import { useMemo } from "react";
@@ -243,12 +239,7 @@ function DocumentScannerVisual() {
   );
 }
 
-const TAMBIEN_ITEMS = [
-  { label: "Pedidos", Icon: ShoppingCartIcon },
-  { label: "Picking Inteligente", Icon: PackageIcon },
-  { label: "Rutas Optimizadas", Icon: TruckIcon },
-  { label: "Integración ERP", Icon: PlugsConnectedIcon },
-] as const;
+
 
 interface ServiceCardData {
   title: string;
@@ -259,23 +250,23 @@ interface ServiceCardData {
 
 const SERVICE_CARDS: readonly [ServiceCardData, ServiceCardData] = [
   {
-    title: "Gestión APPCC Digital",
+    title: "Tu APPCC, sin papeles",
     subtitle:
-      "Registros, trazabilidad y controles de seguridad alimentaria. Todo digital, todo trazable.",
+      "Lleva los registros de seguridad alimentaria desde el móvil. Sin carpetas, sin tener que acordarte de nada.",
     benefits: [
-      "Registros APPCC sin papel",
-      "Trazabilidad por lote en 2 clics",
-      "Alertas automáticas de caducidades",
+      "Registros del día en 2 minutos, no en 20",
+      "Trazabilidad por lote con un par de clics",
+      "Te avisamos antes de que caduque algo",
     ],
     visual: <APPCCDashboardVisual />,
   },
   {
-    title: "Procesamiento de Documentos",
-    subtitle: "Albaranes, facturas y documentación. Se procesan solos.",
+    title: "Tus albaranes y facturas, solos",
+    subtitle: "Subes el documento y listo. Los datos aparecen donde tienen que estar, sin teclear nada.",
     benefits: [
-      "Lectura automática de albaranes",
-      "Extracción de datos de facturas",
-      "Archivo digital con búsqueda",
+      "Lee los albaranes al recibirlos, sin escribir a mano",
+      "Saca los datos de tus facturas de forma automática",
+      "Todo archivado y buscable cuando lo necesites",
     ],
     visual: <DocumentScannerVisual />,
   },
@@ -313,7 +304,7 @@ function ServiceCard({ card }: { card: ServiceCardData }) {
             href="#contacto"
             className="inline-flex rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-700"
           >
-            Quiero saber más
+            Cuéntame más
           </a>
         </div>
       </div>
@@ -327,14 +318,13 @@ export function FoodServices() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeInView className="text-center">
           <span className="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
-            Nuestros Servicios
+            Para el sector alimentario
           </span>
           <h2 className="mt-4 font-heading text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
-            Dos herramientas. Un sector. Tu negocio.
+            Menos papeleo. Más control.
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-            Diseñadas para la industria alimentaria española. Sin complicaciones
-            técnicas.
+            Dos herramientas pensadas para carnicerías, salas de despiece y distribuidores. Las pones en marcha en un día.
           </p>
         </FadeInView>
 
@@ -347,22 +337,9 @@ export function FoodServices() {
         </FadeInView>
 
         <FadeInView delay={0.3}>
-          <div className="mt-16 text-center">
-            <p className="text-sm font-medium text-gray-400">
-              También automatizamos
-            </p>
-            <div className="mt-4 grid grid-cols-2 gap-4 sm:gap-6 md:flex md:items-center md:justify-center md:gap-10">
-              {TAMBIEN_ITEMS.map((item) => (
-                <div
-                  key={item.label}
-                  className="flex flex-col items-center gap-2"
-                >
-                  <item.Icon className="h-5 w-5 text-gray-400" />
-                  <span className="text-sm text-gray-500">{item.label}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          <p className="mt-16 text-center text-sm text-gray-400">
+            También automatizamos pedidos, picking, rutas y conexión con tu ERP.
+          </p>
         </FadeInView>
       </div>
     </section>

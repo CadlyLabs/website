@@ -17,7 +17,7 @@ interface FormErrors {
 
 const trustBadges = [
   { icon: Clock, text: "Respuesta en 24h" },
-  { icon: UserCheck, text: "Análisis personalizado" },
+  { icon: UserCheck, text: "Hablamos de tu caso concreto" },
   { icon: Shield, text: "Sin compromiso" },
 ];
 
@@ -114,7 +114,7 @@ export function Contact() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <FadeInView className="text-center">
             <span className="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
-              Contacto
+              Hablemos
             </span>
             <h2 className="mt-4 font-heading text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
               ¿Hablamos de tu negocio?
@@ -219,7 +219,7 @@ export function Contact() {
                   </div>
 
                   <div className="space-y-2">
-                    <Label htmlFor="details">Cuéntanos sobre tu proyecto</Label>
+                    <Label htmlFor="details">¿Qué te quita más tiempo?</Label>
                     <Textarea
                       id="details"
                       name="details"
@@ -243,7 +243,7 @@ export function Contact() {
                     disabled={isSubmitting}
                     className="w-full rounded-full bg-brand-600 py-3 font-medium text-white transition-colors hover:bg-brand-700 disabled:opacity-50"
                   >
-                    {isSubmitting ? "Enviando..." : "Enviar"}
+                    {isSubmitting ? "Enviando..." : "Enviar mensaje"}
                   </button>
 
                   {errors.submit && (
@@ -274,11 +274,10 @@ export function Contact() {
                 <Envelope className="h-8 w-8 text-green-600" />
               </div>
               <h3 className="font-heading text-xl font-bold text-gray-900">
-                Mensaje enviado
+                ¡Recibido!
               </h3>
               <p className="mt-2 text-gray-600">
-                Gracias por contactarnos. Recibirás una respuesta en un plazo de 24
-                horas.
+                Te contestamos en menos de 24 horas.
               </p>
               <button
                 onClick={() => setShowModal(false)}

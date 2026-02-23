@@ -111,7 +111,7 @@ export function Navbar() {
                 onClick={() => handleNavClick("#contacto")}
                 className="rounded-full bg-brand-600 px-3 py-1 text-sm font-medium text-white transition-colors hover:bg-brand-700 cursor-pointer "
               >
-                Agendar consultoría
+                ¿Hablamos?
               </button>
             </div>
 
@@ -185,7 +185,7 @@ export function Navbar() {
                   onClick={() => handleNavClick("#contacto")}
                   className="mt-4 rounded-full bg-brand-600 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-brand-700"
                 >
-                  Agendar consultoría
+                   ¿Hablamos?
                 </motion.button>
               </nav>
             </motion.div>

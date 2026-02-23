@@ -7,30 +7,30 @@ import { TracingBeam } from "@/components/ui/tracing-beam";
 const steps = [
   {
     number: "01",
-    title: "Diagnóstico gratuito",
+    title: "Una charla sin compromiso",
     description:
-      "Analizamos tus procesos actuales, identificamos cuellos de botella y diseñamos una propuesta personalizada. Sin compromiso.",
+      "Nos cuentas cómo trabajas ahora. Vemos dónde se pierde más tiempo y te decimos qué haríamos. Sin rodeos.",
     Icon: MagnifyingGlassIcon,
   },
   {
     number: "02",
-    title: "Propuesta y planificación",
+    title: "Propuesta clara y precio cerrado",
     description:
-      "Definimos alcance, tiempos y presupuesto cerrado. Sabes exactamente qué vas a recibir y cuándo.",
+      "Te decimos exactamente qué vamos a hacer, cuánto tarda y cuánto cuesta. Sin sorpresas al final.",
     Icon: FileTextIcon,
   },
   {
     number: "03",
-    title: "Desarrollo e integración",
+    title: "Montamos tu sistema",
     description:
-      "Construimos e integramos la solución con tus sistemas actuales. Iteraciones cortas con demos frecuentes.",
+      "Construimos e integramos todo con lo que ya usas. Cada semana te enseñamos cómo va avanzando.",
     Icon: CodeIcon,
   },
   {
     number: "04",
-    title: "Puesta en marcha y soporte",
+    title: "Arrancamos y te acompañamos",
     description:
-      "Formación a tu equipo, despliegue gradual y soporte continuo. Estamos contigo en cada paso.",
+      "Formamos a tu equipo, arrancamos poco a poco y seguimos contigo. Si algo falla, lo resolvemos.",
     Icon: RocketIcon,
   },
 ];
@@ -43,14 +43,13 @@ export function HowWeWork() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeInView className="text-center">
           <span className="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
-            Proceso
+            Así trabajamos
           </span>
           <h2 className="mt-4 font-heading text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
-            De la idea al sistema funcionando
+            De la primera llamada al sistema en marcha
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-            Implementaciones ágiles con resultados visibles desde el primer
-            mes. Sin sorpresas, sin proyectos interminables.
+            Resultados visibles desde el primer mes. Sin proyectos eternos, sin sorpresas.
           </p>
         </FadeInView>
 

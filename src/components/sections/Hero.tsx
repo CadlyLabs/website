@@ -36,7 +36,7 @@ export function Hero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
               <SparkleIcon className="h-4 w-4" />
-              Automatización para la Industria Alimentaria
+              Tecnología que entiende tu día a día
             </span>
           </motion.div>
 
@@ -46,7 +46,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-8 font-heading text-4xl font-semibold leading-tight text-gray-900 sm:text-5xl md:text-6xl"
           >
-            El papeleo de siempre, resuelto de una vez.
+            Gana dos horas al día olvidándote del papeleo
           </motion.h1>
 
             <motion.p
@@ -55,7 +55,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mx-auto mt-6 max-w-2xl text-lg text-gray-600 sm:text-xl"
             >
-              Software que tu equipo usa desde el primer día. APPCC digital, trazabilidad por lote y documentación — todo en un sistema que tú manejas.
+              Una herramienta que tu equipo aprende a usar en diez minutos. Controla el APPCC y la trazabilidad por lote sin complicaciones y desde el móvil.
             </motion.p>
 
           <motion.div
@@ -71,14 +71,14 @@ export function Hero() {
               borderClassName="bg-[radial-gradient(rgb(255,133,50)_40%,transparent_60%)]"
               className="border-brand-600/20 bg-brand-600 text-sm font-medium text-white hover:bg-brand-700 cursor-pointer px-6 py-3"
             >
-              Ver las herramientas
+              Mira cómo funciona
             </MovingBorderButton>
 
             <button
               onClick={() => handleScrollToSection("#contacto")}
               className="flex h-12 items-center justify-center rounded-3xl border-2 border-gray-300 bg-white/80 px-6 text-sm font-medium text-gray-700 backdrop-blur-sm transition-all hover:border-brand-500 hover:text-brand-600"
             >
-              Habla con nosotros
+              ¿Hablamos?
             </button>
           </motion.div>
         </motion.div>
@@ -97,7 +97,7 @@ export function Hero() {
           }}
           className="flex flex-col items-center gap-2 text-gray-400"
         >
-          <span className="text-sm">Descubre más</span>
+          <span className="text-sm">Echa un ojo</span>
           <svg
             className="h-5 w-5"
             fill="none"
