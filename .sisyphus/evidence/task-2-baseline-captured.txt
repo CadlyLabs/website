@@ -1,0 +1,40 @@
+=== TASK 2: BASELINE CAPTURE - EVIDENCE SUMMARY ===
+Date: 2026-02-23
+Status: COMPLETED
+
+DELIVERABLES CHECKLIST:
+✓ .sisyphus/evidence/before/ directory created
+✓ Full-page screenshot: full-page.png (313 KB)
+✓ Section screenshots captured:
+  - hero-section.png (314 KB)
+  - soluciones-section.png (191 KB)
+  - casos-section.png (299 KB)
+  - proceso-section.png (100 KB)
+  - why-cadly-section.png (122 KB)
+  - contacto-section.png (103 KB)
+  - footer-section.png (92 KB)
+✓ Copy baseline file: copy-baseline.txt (4.6 KB)
+
+BASELINE CONTENT CAPTURED:
+- Hero section: Main tagline, headline, subheading, CTAs
+- Solutions section: Service labels, headlines, descriptions, features
+- Success stories: Case study details, quote, results metrics
+- Process section: 4-step implementation process with descriptions
+- Why Cadly section: 4 key differentiators with explanations
+- Contact section: Headline, contact methods, form fields
+- Footer: Tagline, email, CTA, copyright
+- Navigation: Logo, menu items, primary CTA
+
+KEY COPY STRINGS DOCUMENTED:
+- "Automatización para la Industria Alimentaria"
+- "El papeleo de siempre, resuelto de una vez."
+- "Dos herramientas. Un sector. Tu negocio."
+- "Resultados que hablan por sí solos"
+- "De la idea al sistema funcionando"
+- "Por qué empresas alimentarias confían en nosotros"
+- "¿Hablamos de tu negocio?"
+
+TOTAL FILES: 9 (1 full-page + 7 sections + 1 copy baseline)
+TOTAL SIZE: ~1.3 MB
+
+READY FOR: Copy rewriting and design improvements

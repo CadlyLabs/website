@@ -1,0 +1,155 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { Navbar } from "@/components/sections/Navbar";
+import Footer from "@/components/sections/Footer.astro";
+import { FadeInView, StaggerContainer, StaggerItem } from "@/components/animations/FadeInView";
+---
+
+<Layout
+  title="Quiénes somos | Cadly Labs"
+  description="Somos una consultoría de IA especializada en la industria alimentaria. Conoce nuestra historia y por qué hacemos lo que hacemos."
+>
+  title="Quiénes somos | CadlyLabs"
+  description="Somos una consultoría de IA especializada en la industria alimentaria. Conoce nuestra historia y por qué hacemos lo que hacemos."
+>
+  <main
+    id="main-content"
+    class="relative flex flex-col scrollbar-custom overflow-y-auto h-dvh overflow-x-hidden bg-white"
+  >
+    <Navbar client:load transition:persist />
+
+    <!-- Hero Section -->
+    <section class="relative w-full min-h-[100dvh] flex items-center pt-24 pb-16 overflow-hidden">
+      <div class="absolute inset-0 bg-zinc-50/50 -z-10"></div>
+      <div class="container mx-auto px-4 md:px-8 max-w-7xl">
+        <FadeInView client:visible className="max-w-3xl">
+          <h1 class="font-heading text-5xl md:text-7xl text-zinc-950 leading-tight mb-8 tracking-tight">
+            Quiénes somos
+          </h1>
+          <p class="font-body text-xl md:text-2xl text-zinc-600 leading-relaxed max-w-[45ch]">
+            Somos tu equipo de IA para la industria alimentaria. Diagnosticamos cuellos de botella operativos y construimos soluciones a medida para eliminarlos.
+          </p>
+        </FadeInView>
+      </div>
+    </section>
+
+    <!-- Founding Story Section -->
+    <section class="relative w-full py-24 md:py-32 bg-white">
+      <div class="container mx-auto px-4 md:px-8 max-w-7xl">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-start">
+          <div class="lg:col-span-5 lg:sticky lg:top-32">
+            <FadeInView client:visible>
+              <h2 class="font-heading text-4xl md:text-5xl text-zinc-950 leading-tight mb-6">
+                Nuestra historia
+              </h2>
+              <p class="font-body text-lg text-zinc-600 leading-relaxed">
+                No somos consultores teorizando sobre tus problemas. Venimos de la industria y sabemos lo que cuesta el trabajo manual.
+              </p>
+            </FadeInView>
+          </div>
+          
+          <div class="lg:col-span-7">
+            <StaggerContainer client:visible className="space-y-12">
+              <StaggerItem client:visible>
+                <div class="pl-6 md:pl-10 border-l border-zinc-200">
+                  <h3 class="font-heading text-2xl text-zinc-900 mb-4">El origen en la sala de despiece</h3>
+                  <p class="font-body text-zinc-600 leading-relaxed">
+                    Todo empezó cuando uno de nuestros fundadores gestionaba una sala de despiece. El papeleo, los albaranes, el control de trazabilidad y los pedidos por WhatsApp consumían horas que debían dedicarse al negocio.
+                  </p>
+                </div>
+              </StaggerItem>
+              
+              <StaggerItem client:visible>
+                <div class="pl-6 md:pl-10 border-l border-zinc-200">
+                  <h3 class="font-heading text-2xl text-zinc-900 mb-4">La primera solución</h3>
+                  <p class="font-body text-zinc-600 leading-relaxed">
+                    Construimos un sistema propio para automatizar esos procesos sin cambiar la forma de trabajar del equipo. Funcionó tan bien que otras empresas del sector empezaron a pedirnos lo mismo.
+                  </p>
+                </div>
+              </StaggerItem>
+              
+              <StaggerItem client:visible>
+                <div class="pl-6 md:pl-10 border-l border-brand-500">
+                  <h3 class="font-heading text-2xl text-zinc-900 mb-4">CadlyLabs hoy</h3>
+                  <p class="font-body text-zinc-600 leading-relaxed">
+                    Hoy somos un equipo especializado que une conocimiento profundo del sector alimentario con experiencia técnica avanzada en inteligencia artificial. Entendemos tu negocio y sabemos cómo quitarte el trabajo manual.
+                  </p>
+                </div>
+              </StaggerItem>
+            </StaggerContainer>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Differentiators Section -->
+    <section class="relative w-full py-24 md:py-32 bg-zinc-50">
+      <div class="container mx-auto px-4 md:px-8 max-w-7xl">
+        <FadeInView client:visible className="mb-16 md:mb-24">
+          <h2 class="font-heading text-4xl md:text-5xl text-zinc-950 leading-tight max-w-2xl">
+            Por qué somos diferentes
+          </h2>
+        </FadeInView>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-16 gap-y-16 lg:gap-y-24">
+          <FadeInView client:visible delay={0.1} className="flex flex-col">
+            <span class="font-mono text-brand-500 text-sm font-semibold tracking-widest uppercase mb-4">01</span>
+            <h3 class="font-heading text-2xl text-zinc-900 mb-4">Diagnosticamos antes de construir</h3>
+            <p class="font-body text-zinc-600 leading-relaxed">
+              Vamos a tus instalaciones, entendemos tu operativa y encontramos el cuello de botella. No te recetamos un producto genérico, construimos lo que necesitas.
+            </p>
+          </FadeInView>
+
+          <FadeInView client:visible delay={0.2} className="flex flex-col md:mt-12">
+            <span class="font-mono text-brand-500 text-sm font-semibold tracking-widest uppercase mb-4">02</span>
+            <h3 class="font-heading text-2xl text-zinc-900 mb-4">Sin migraciones dolorosas</h3>
+            <p class="font-body text-zinc-600 leading-relaxed">
+              Nunca te pedimos que abandones los sistemas que ya te funcionan. Nos integramos con tu ERP actual, tus hojas de cálculo y tus procesos. Añadimos, no sustituimos.
+            </p>
+          </FadeInView>
+
+          <FadeInView client:visible delay={0.3} className="flex flex-col">
+            <span class="font-mono text-brand-500 text-sm font-semibold tracking-widest uppercase mb-4">03</span>
+            <h3 class="font-heading text-2xl text-zinc-900 mb-4">Especialización total</h3>
+            <p class="font-body text-zinc-600 leading-relaxed">
+              No somos una consultoría generalista. Hablamos el idioma de mataderos, salas de despiece, obradores y distribuidores alimentarios. Conocemos tus problemas porque los hemos vivido.
+            </p>
+          </FadeInView>
+
+          <FadeInView client:visible delay={0.4} className="flex flex-col md:mt-12">
+            <span class="font-mono text-brand-500 text-sm font-semibold tracking-widest uppercase mb-4">04</span>
+            <h3 class="font-heading text-2xl text-zinc-900 mb-4">Empezamos pequeño</h3>
+            <p class="font-body text-zinc-600 leading-relaxed">
+              Un problema, una solución, una victoria rápida. Demostramos valor en semanas, no en meses. Una vez que confías en los resultados, abordamos el siguiente reto.
+            </p>
+          </FadeInView>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="relative w-full py-32 md:py-40 bg-zinc-950 text-white overflow-hidden">
+      <div class="absolute inset-0 opacity-10 bg-[radial-gradient(circle_at_center,rgba(255,133,50,0.8)_0%,transparent_70%)]"></div>
+      <div class="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
+        <FadeInView client:visible className="max-w-3xl">
+          <h2 class="font-heading text-5xl md:text-6xl leading-tight mb-8">
+            ¿Quieres conocernos?
+          </h2>
+          <p class="font-body text-xl text-zinc-400 leading-relaxed mb-12 max-w-[45ch]">
+            Agenda una llamada de 20 minutos para entender tu caso concreto y ver si tiene sentido que trabajemos juntos.
+          </p>
+          <a 
+            href="https://calendly.com/cadlylabs/20min" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            class="inline-flex items-center justify-center px-8 py-4 bg-brand-500 text-white font-body font-medium rounded-full hover:bg-brand-600 transition-colors duration-300"
+          >
+            Agendar llamada
+          </a>
+        </FadeInView>
+      </div>
+    </section>
+
+    <Footer />
+  </main>
+</Layout>

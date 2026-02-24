@@ -1,0 +1,151 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { FadeInView } from "../../components/animations/FadeInView";
+
+const calendlyUrl = "https://calendly.com/cadlylabs/20min";
+const heroColor = "#FF8532";
+---
+
+<Layout
+  title="WhatsApp y ERP Conectados | Cadly Labs"
+  description="Pedidos por WhatsApp que entran solos al sistema. El agente entiende contexto, responde consultas de precio y confirma pedidos. Todo entra directo en tu ERP."
+  canonical="https://cadlylabs.com/soluciones/whatsapp"
+>
+  <main class="relative flex flex-col overflow-x-hidden">
+    <!-- Section 1: Hero -->
+    <section
+      class="relative min-h-[100dvh] flex items-center px-4 py-20 md:py-0"
+      style={{ backgroundColor: heroColor + "15" }}
+    >
+      <div class="w-full max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <FadeInView client:visible className="flex flex-col items-start text-left">
+          <h1
+            class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight"
+            style={{ color: heroColor }}
+          >
+            WhatsApp y ERP Conectados
+          </h1>
+          <p class="text-xl md:text-2xl text-gray-800 mb-6 font-medium">
+            Pedidos por WhatsApp que entran solos al sistema
+          </p>
+          <p class="text-base md:text-lg text-gray-600 mb-10 leading-relaxed max-w-[65ch]">
+            Tus clientes ya te mandan pedidos por WhatsApp. Que se procesen solos. El agente entiende contexto, responde consultas de precio y confirma pedidos. Todo entra directo en tu ERP.
+          </p>
+          <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
+            <button class="bg-black hover:bg-gray-900 text-white px-8 py-4 rounded-lg font-semibold transition-colors text-lg">
+              Reserva una llamada
+            </button>
+          </a>
+        </FadeInView>
+        <FadeInView client:visible delay={0.2} className="hidden md:block">
+          <div class="w-full aspect-square bg-white/50 rounded-3xl border border-white/20 shadow-2xl flex items-center justify-center p-8">
+            <div class="w-full h-full border-2 border-dashed border-gray-300 rounded-2xl flex flex-col items-center justify-center bg-gray-50/50 p-6 text-center">
+              <p class="text-gray-400 font-medium mb-4">Visualización del Flujo</p>
+              <div class="w-full max-w-sm bg-white rounded-xl shadow-sm border border-gray-100 p-4 mb-4 text-left">
+                <p class="text-sm text-gray-500 mb-1">Cliente</p>
+                <p class="text-gray-800 font-medium">3 cajas de lo de siempre por favor</p>
+              </div>
+              <div class="w-full max-w-sm bg-orange-50 rounded-xl shadow-sm border border-orange-100 p-4 text-left ml-auto">
+                <p class="text-sm text-orange-500 mb-1">Agente</p>
+                <p class="text-gray-800 font-medium">Pedido confirmado: 3 cajas de Solomillo. Entregamos mañana.</p>
+              </div>
+            </div>
+          </div>
+        </FadeInView>
+      </div>
+    </section>
+
+    <!-- Section 2: How it works -->
+    <section class="py-24 md:py-32 px-4 bg-white">
+      <div class="max-w-7xl mx-auto">
+        <FadeInView client:visible className="mb-20">
+          <h2 class="font-serif text-4xl md:text-6xl font-bold mb-6 tracking-tighter">
+            Cómo funciona
+          </h2>
+          <p class="text-xl text-gray-600 max-w-[65ch]">
+            Tres pasos simples para automatizar la entrada de pedidos
+          </p>
+        </FadeInView>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+          <FadeInView client:visible delay={0.1} className="flex flex-col items-start">
+            <div
+              class="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 font-bold text-white text-2xl shadow-lg"
+              style={{ backgroundColor: heroColor }}
+            >
+              1
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">Tu cliente manda el pedido por WhatsApp</h3>
+            <p class="text-gray-600 leading-relaxed text-lg">Como siempre lo ha hecho, sin cambiar nada en su rutina</p>
+          </FadeInView>
+
+          <FadeInView client:visible delay={0.2} className="flex flex-col items-start">
+            <div
+              class="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 font-bold text-white text-2xl shadow-lg"
+              style={{ backgroundColor: heroColor }}
+            >
+              2
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">El agente entiende el contexto</h3>
+            <p class="text-gray-600 leading-relaxed text-lg">"3 cajas de lo de siempre" se convierte en un pedido estructurado</p>
+          </FadeInView>
+
+          <FadeInView client:visible delay={0.3} className="flex flex-col items-start">
+            <div
+              class="w-16 h-16 rounded-2xl flex items-center justify-center mb-8 font-bold text-white text-2xl shadow-lg"
+              style={{ backgroundColor: heroColor }}
+            >
+              3
+            </div>
+            <h3 class="text-2xl font-bold mb-4 text-gray-900">El pedido entra directo en tu ERP</h3>
+            <p class="text-gray-600 leading-relaxed text-lg">Sin reescribir, sin errores, sin demoras</p>
+          </FadeInView>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Results/Metrics -->
+    <section class="py-24 md:py-32 px-4 bg-gray-50 border-y border-gray-100">
+      <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <FadeInView client:visible>
+          <h2 class="font-serif text-4xl md:text-6xl font-bold mb-8 tracking-tighter leading-tight">
+            Tus clientes ya usan WhatsApp. Que el sistema también lo haga.
+          </h2>
+          <p class="text-xl text-gray-600 leading-relaxed">
+            Elimina el cuello de botella de transcribir pedidos manualmente. Acelera la respuesta, reduce errores y libera a tu equipo para tareas de mayor valor.
+          </p>
+        </FadeInView>
+
+        <FadeInView client:visible delay={0.2}>
+          <div class="p-12 border border-gray-200 rounded-3xl bg-white shadow-sm">
+            <p class="text-6xl md:text-8xl font-bold mb-4 tracking-tighter" style={{ color: heroColor }}>
+              0
+            </p>
+            <p class="text-2xl text-gray-900 font-medium">
+              Errores de transcripción manual
+            </p>
+          </div>
+        </FadeInView>
+      </div>
+    </section>
+
+    <!-- Section 4: CTA -->
+    <section
+      class="py-24 md:py-32 px-4"
+      style={{ backgroundColor: heroColor + "10" }}
+    >
+      <div class="max-w-4xl mx-auto text-center">
+        <FadeInView client:visible>
+          <h2 class="font-serif text-5xl md:text-7xl font-bold mb-8 tracking-tighter">
+            ¿Quieres verlo en acción?
+          </h2>
+          <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
+            <button class="bg-black hover:bg-gray-900 text-white px-10 py-5 rounded-xl font-bold transition-colors text-xl shadow-xl hover:shadow-2xl hover:-translate-y-1 transform duration-200">
+              Reserva una llamada
+            </button>
+          </a>
+        </FadeInView>
+      </div>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,16 @@
+Task 1 done
+27:  --font-heading: "Libre Baskerville", Georgia, serif;
+28:  --font-body: "Manrope", system-ui, sans-serif;
+33:  --text-display: 3.5rem;
+34:  --text-heading: 2rem;
+35:  --text-subheading: 1.5rem;
+177:    font-family: var(--font-body);
+185:    font-family: var(--font-heading);
+216:  .font-heading {
+217:    font-family: var(--font-heading);
+219:  .font-body {
+220:    font-family: var(--font-body);
+222:  .text-serif {
+223:    font-family: var(--font-heading);
+226:    font-size: var(--text-display);
+227:    font-family: var(--font-heading);

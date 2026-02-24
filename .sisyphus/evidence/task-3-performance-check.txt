@@ -1,0 +1,5 @@
+Task 3 done
+32:          animate={{ scale: [1, 1.15, 1] }}
+33:          className="absolute inset-0 will-change-transform"
+44:          animate={{ scale: [1.1, 1, 1.1] }}
+45:          className="absolute inset-0 will-change-transform"

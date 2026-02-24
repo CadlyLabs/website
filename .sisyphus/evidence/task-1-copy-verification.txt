@@ -1,0 +1,21 @@
+# Task 1: Copy Verification
+
+## Changes Made
+✅ Line 49 (h1): "Lo que tu ERP no cubre, lo cubrimos nosotros"
+✅ Line 58 (subtitle): "Documentos, trazabilidad, pedidos — lo que te quite tiempo, lo automatizamos"
+✅ Line 74 (CTA): "Mira lo que hacemos"
+
+## Verification
+✅ Badge text UNCHANGED: "Tecnología que entiende tu día a día" (line 39)
+✅ Secondary CTA UNCHANGED: "¿Hablamos?" (line 81)
+✅ No buzzwords detected (sinergia, transformación digital, innovador, escalable, disruptivo, game-changer)
+✅ No hyphens in copy (only em-dash "—" which is allowed)
+✅ All copy uses "tú" not "usted"
+✅ Copy is benefit-focused and specific
+
+## Brand Voice Compliance
+✅ Direct: "Lo que tu ERP no cubre" — gets to the point
+✅ Practical: "Documentos, trazabilidad, pedidos" — concrete examples
+✅ Confident: "lo cubrimos nosotros" — we know what we're doing
+✅ Human: Natural Spanish, no corporate jargon
+✅ CTA "Mira lo que hacemos" — consultancy framing (what we do, not how it works)

@@ -1,118 +1,79 @@
 "use client";
 
 import { motion } from "motion/react";
-import { SparkleIcon } from "@phosphor-icons/react";
-import { Button as MovingBorderButton } from "@/components/ui/moving-border";
-import { FloatingPaths } from "@/components/kokonutui/background-paths";
+import { Robot, Cpu, ChartLine } from "@phosphor-icons/react";
+import { RadialBreathing } from "@/components/backgrounds/RadialBreathing";
+import { FadeInView } from "@/components/animations/FadeInView";
 
 export function Hero() {
-  const handleScrollToSection = (href: string) => {
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
-    }
-  };
-
   return (
-    <section
-      id="hero"
-      className="relative flex min-h-screen w-full items-center justify-center overflow-hidden bg-gradient-to-b from-brand-50 via-white to-white"
-    >
-      <div className="absolute inset-0">
-        <FloatingPaths position={1} />
-      </div>
+    <section id="hero" className="relative w-full overflow-hidden">
+      <RadialBreathing className="min-h-[100dvh] flex items-center w-full">
+        <div className="container mx-auto px-4 pt-20 md:px-6 md:pt-0">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            {/* Left Column - 60% */}
+            <div className="md:col-span-7 flex flex-col items-start text-left">
+              <FadeInView delay={0}>
+                <h1 className="font-heading text-3xl md:text-6xl lg:text-7xl tracking-tighter font-semibold leading-tight text-gray-900">
+                  Optimizamos los procesos que tu ERP no cubre
+                </h1>
+              </FadeInView>
+              
+              <FadeInView delay={0.1}>
+                <p className="mt-6 max-w-2xl font-body text-lg md:text-xl text-gray-600">
+                  Consultoría de IA especializada en industria alimentaria. Diagnosticamos, construimos, automatizamos.
+                </p>
+              </FadeInView>
 
-      <div className="container relative z-10 mx-auto px-4 pt-20 text-center md:px-6 md:pt-0">
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1 }}
-          className="mx-auto max-w-4xl"
-        >
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0 }}
-          >
-            <span className="inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
-              <SparkleIcon className="h-4 w-4" />
-              Tecnología que entiende tu día a día
-            </span>
-          </motion.div>
+              <FadeInView delay={0.2} className="mt-10 flex flex-col sm:flex-row items-start gap-4 w-full sm:w-auto">
+                <motion.a
+                  href="https://calendly.com/cadlylabs/20min"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                  className="flex w-full sm:w-auto items-center justify-center rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white hover:bg-brand-700 transition-colors"
+                >
+                  Reserva una llamada
+                </motion.a>
+                <motion.a
+                  href="/soluciones/"
+                  whileHover={{ scale: 1.03 }}
+                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                  className="flex w-full sm:w-auto items-center justify-center rounded-full border border-brand-600 px-6 py-3 text-sm font-medium text-brand-600 hover:bg-brand-50 transition-colors"
+                >
+                  Ver soluciones
+                </motion.a>
+              </FadeInView>
+            </div>
 
-          <motion.h1
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="mt-8 font-heading text-4xl font-semibold leading-tight text-gray-900 sm:text-5xl md:text-6xl"
-          >
-            Lo que tu ERP no cubre, lo cubrimos nosotros
-          </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mx-auto mt-6 max-w-2xl text-lg text-gray-600 sm:text-xl"
-            >
-              Documentos, trazabilidad, pedidos. Lo que te quite tiempo, lo automatizamos.
-            </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.6 }}
-            className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
-          >
-            <MovingBorderButton
-              onClick={() => handleScrollToSection("#soluciones")}
-              borderRadius="1.5rem"
-              containerClassName="h-12 w-fit"
-              borderClassName="bg-[radial-gradient(rgb(255,133,50)_40%,transparent_60%)]"
-              className="border-brand-600/20 bg-brand-600 text-sm font-medium text-white hover:bg-brand-700 cursor-pointer px-6 py-3"
-            >
-              Mira lo que hacemos
-            </MovingBorderButton>
-
-            <button
-              onClick={() => handleScrollToSection("#contacto")}
-              className="flex h-12 items-center justify-center rounded-3xl border-2 border-gray-300 bg-white/80 px-6 text-sm font-medium text-gray-700 backdrop-blur-sm transition-all hover:border-brand-500 hover:text-brand-600"
-            >
-              ¿Hablamos?
-            </button>
-          </motion.div>
-        </motion.div>
-      </div>
-
-      <a href="#soluciones" className="absolute bottom-8 left-1/2 -translate-x-1/2">
-        <motion.div
-          initial={{ opacity: 0, y: -10 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{
-            duration: 0.6,
-            delay: 1,
-            repeat: Infinity,
-            repeatType: "reverse",
-            repeatDelay: 0.5,
-          }}
-          className="flex flex-col items-center gap-2 text-gray-400"
-        >
-          <span className="text-sm">Echa un ojo</span>
-          <svg
-            className="h-5 w-5"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </motion.div>
-      </a>
+            {/* Right Column - 40% */}
+            <div className="md:col-span-5 relative hidden md:flex h-full min-h-[400px] items-center justify-center">
+              <motion.div
+                animate={{ y: [-10, 10, -10] }}
+                transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                className="absolute top-1/4 left-1/4 text-brand-500/40"
+              >
+                <Robot weight="duotone" className="h-24 w-24" />
+              </motion.div>
+              <motion.div
+                animate={{ y: [10, -10, 10] }}
+                transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                className="absolute bottom-1/4 right-1/4 text-brand-600/30"
+              >
+                <Cpu weight="duotone" className="h-32 w-32" />
+              </motion.div>
+              <motion.div
+                animate={{ y: [-15, 15, -15] }}
+                transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                className="absolute top-1/2 right-1/3 text-brand-400/50"
+              >
+                <ChartLine weight="duotone" className="h-20 w-20" />
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </RadialBreathing>
     </section>
   );
 }

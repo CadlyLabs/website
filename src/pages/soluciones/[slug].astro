@@ -1,0 +1,175 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { SERVICES } from "../../data/services";
+import { FadeInView } from "../../components/animations/FadeInView";
+
+export function getStaticPaths() {
+  const staticPages = ["appcc", "automatizacion", "dashboard", "documentos"];
+  return SERVICES.filter((service) => !staticPages.includes(service.slug)).map((service) => ({
+    params: { slug: service.slug },
+    props: { service },
+  }));
+}
+
+interface Props {
+  service: (typeof SERVICES)[number];
+}
+
+const { service } = Astro.props;
+const calendlyUrl = "https://calendly.com/cadlylabs/20min";
+---
+
+<Layout
+  title={`${service.title} | Cadly Labs`}
+  description={service.description}
+  canonical={`https://cadlylabs.com/soluciones/${service.slug}`}
+>
+  <main class="relative flex flex-col overflow-x-hidden">
+    <!-- Section 1: Hero -->
+    <section
+      class="relative min-h-[100dvh] flex items-center justify-center px-4 py-20 md:py-0"
+      style={{ backgroundColor: service.heroColor + "15" }}
+    >
+      <FadeInView client:visible className="w-full max-w-4xl mx-auto text-center">
+        <h1
+          class="font-serif text-5xl md:text-7xl font-bold mb-6 leading-tight"
+          style={{ color: service.heroColor }}
+        >
+          {service.title}
+        </h1>
+        <p class="text-xl md:text-2xl text-gray-700 mb-8 font-light">
+          {service.tagline}
+        </p>
+        <p class="text-base md:text-lg text-gray-600 mb-12 max-w-2xl mx-auto leading-relaxed">
+          {service.description}
+        </p>
+        <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
+          <button class="bg-black hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+            {service.cta}
+          </button>
+        </a>
+      </FadeInView>
+    </section>
+
+    <!-- Section 2: How it works -->
+    <section class="py-20 md:py-32 px-4 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <FadeInView client:visible className="mb-16">
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-center mb-4">
+            Cómo funciona
+          </h2>
+          <p class="text-center text-gray-600 text-lg">
+            Tres pasos simples para implementar esta solución
+          </p>
+        </FadeInView>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          {service.features.map((feature, index) => (
+            <FadeInView
+              client:visible
+              delay={index * 0.1}
+              className="flex flex-col items-start"
+            >
+              <div
+                class="w-12 h-12 rounded-full flex items-center justify-center mb-4 font-bold text-white text-lg"
+                style={{ backgroundColor: service.heroColor }}
+              >
+                {index + 1}
+              </div>
+              <p class="text-gray-700 leading-relaxed">{feature}</p>
+            </FadeInView>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: Visual placeholder -->
+    <section class="py-20 md:py-32 px-4 bg-gray-50">
+      <div class="max-w-4xl mx-auto">
+        <FadeInView client:visible className="mb-12">
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-center mb-4">
+            Visualización
+          </h2>
+        </FadeInView>
+
+        <FadeInView client:visible>
+          <picture class="block w-full">
+            <source
+              srcset="data:image/avif,base64,AAAAHGZ0eXBhdmlmAAAAAG1pZjEAAAGqbWV0YQAAAAAAAAAoaGRscgAAAAAAAAAAAAAAL2lkYXQAAAAAAAAA0AAAANAAAAA="
+              type="image/avif"
+            />
+            <source
+              srcset="data:image/webp,UklGRiYAAABXRUJQVlA4IBIAAAAwAQCdASoBAAEAAUAcJaACdLoB/gAA/v8A/v8A"
+              type="image/webp"
+            />
+            <img
+              src="data:image/png,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg=="
+              alt={`Placeholder para imagen de ${service.title}`}
+              class="w-full aspect-video bg-gray-200 rounded-2xl object-cover"
+            />
+          </picture>
+        </FadeInView>
+
+        <p class="text-center text-gray-500 text-sm mt-4">
+          Imagen de demostración (se actualizará con contenido real)
+        </p>
+      </div>
+    </section>
+
+    <!-- Section 4: Results/Metrics -->
+    <section class="py-20 md:py-32 px-4 bg-white">
+      <div class="max-w-4xl mx-auto">
+        <FadeInView client:visible className="mb-16">
+          <h2 class="font-serif text-4xl md:text-5xl font-bold text-center mb-4">
+            Resultados
+          </h2>
+          <p class="text-center text-gray-600 text-lg">
+            Lo que nuestros clientes logran con {service.title}
+          </p>
+        </FadeInView>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <FadeInView client:visible delay={0}>
+            <div class="p-8 border border-gray-200 rounded-2xl">
+              <p class="text-4xl font-bold mb-2" style={{ color: service.heroColor }}>
+                +40%
+              </p>
+              <p class="text-gray-700">Mejora en eficiencia operativa</p>
+            </div>
+          </FadeInView>
+
+          <FadeInView client:visible delay={0.1}>
+            <div class="p-8 border border-gray-200 rounded-2xl">
+              <p class="text-4xl font-bold mb-2" style={{ color: service.heroColor }}>
+                80h
+              </p>
+              <p class="text-gray-700">Ahorradas por mes en procesos manuales</p>
+            </div>
+          </FadeInView>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: CTA -->
+    <section
+      class="py-20 md:py-32 px-4"
+      style={{ backgroundColor: service.heroColor + "10" }}
+    >
+      <div class="max-w-3xl mx-auto text-center">
+        <FadeInView client:visible>
+          <h2 class="font-serif text-4xl md:text-5xl font-bold mb-6">
+            ¿Quieres verlo en acción?
+          </h2>
+          <p class="text-lg text-gray-700 mb-8">
+            Agenda una llamada de 20 minutos y te mostramos cómo {service.title.toLowerCase()} puede transformar tus procesos.
+          </p>
+          <a href={calendlyUrl} target="_blank" rel="noopener noreferrer">
+            <button class="bg-black hover:bg-gray-900 text-white px-8 py-3 rounded-lg font-semibold transition-colors">
+              Agendar llamada
+            </button>
+          </a>
+        </FadeInView>
+      </div>
+    </section>
+  </main>
+</Layout>

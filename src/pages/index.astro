@@ -3,7 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import SkipLink from "@/components/SkipLink.astro";
 import { Navbar } from "@/components/sections/Navbar";
 import { Hero } from "@/components/sections/Hero";
-import { FoodServices } from "@/components/sections/FoodServices";
+import { ServicesBento } from "@/components/sections/ServicesBento";
 import SuccessStory from "@/components/sections/SuccessStory.astro";
 import { HowWeWork } from "@/components/sections/HowWeWork";
 import WhyCadly from "@/components/sections/WhyCadly.astro";
@@ -11,15 +11,18 @@ import { Contact } from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer.astro";
 ---
 
-<Layout>
+<Layout
+  title="Inicio | Cadly Labs"
+  description="Soluciones de IA especializadas para la industria alimentaria. APPCC digital, trazabilidad y automatización de procesos."
+>
   <SkipLink />
   <main
     id="main-content"
     class="relative flex flex-col scrollbar-custom overflow-y-auto h-dvh overflow-x-hidden"
   >
-    <Navbar client:load />
+    <Navbar client:load transition:persist />
     <Hero client:load />
-    <FoodServices client:visible />
+    <ServicesBento client:visible />
     <SuccessStory />
     <HowWeWork client:visible />
     <WhyCadly />

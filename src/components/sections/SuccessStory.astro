@@ -1,98 +1,61 @@
 ---
-import { CheckCircleIcon } from "@phosphor-icons/react";
 import { FadeInView } from "@/components/animations/FadeInView";
-
-const results = [
-  "Ahorran un 80% de tiempo en los registros diarios",
-  "Sacan los informes para auditoría en un par de clics",
-  "Llevan todo el APPCC al día sin usar ni un papel",
-  "El sistema les avisa de tareas y fechas que caducan",
-  "Revisan cómo va todo desde el móvil o la tablet",
-];
 ---
 
 <section id="casos" class="bg-white py-24">
   <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-    <FadeInView client:visible className="text-center">
-      <span class="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
-        Esto ya funciona
-      </span>
-      <h2 class="mt-4 font-heading text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
-        Mira cómo ayudamos a otros negocios como el tuyo
+    <FadeInView client:visible>
+      <h2 class="font-heading text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
+        Resultados reales
       </h2>
     </FadeInView>
 
-    <FadeInView client:visible delay={0.2}>
-      <div class="mt-16 overflow-hidden rounded-3xl bg-gradient-to-br from-gray-50 to-gray-100 shadow-lg lg:grid lg:grid-cols-2 lg:gap-0 lg:items-center">
-        <div class="relative pl-0 lg:pl-4 aspect-[4/3] lg:aspect-auto">
-          <img
-            src="/images/logos/appcc_demo.avif"
-            alt="Sistema APPCC de Montes del Acebo"
-            class="w-full h-auto object-contain"
-          />
-          <div class="absolute inset-0 " />
-        </div>
-
-        <div class="flex flex-col justify-center p-6 sm:p-8 lg:p-12 text-center lg:text-left">
-          <div class="flex items-center justify-center md:justify-start gap-4">
+    <div class="mt-16 lg:grid lg:grid-cols-12 lg:gap-16 items-start">
+      <div class="lg:col-span-5 flex flex-col">
+        <FadeInView client:visible delay={0.1}>
+          <div class="mb-12">
             <img
               src="/images/logos/montes_acebo_logo.avif"
               alt="Montes del Acebo"
-              width="60"
-              height="60"
-              class="rounded-xl"
+              width="80"
+              height="80"
+              class="rounded-2xl shadow-sm"
             />
-            <div>
-              <h3 class="font-heading text-xl font-bold text-gray-900">
-                Montes del Acebo
-              </h3>
-              <p class="text-sm text-gray-500">
-                Sector alimentación
-              </p>
-            </div>
           </div>
-
-          <div class="mt-6">
-            <p class="text-lg font-medium text-gray-900">
-              Sistema APPCC digital
+          <div class="space-y-4">
+            <span class="block text-8xl md:text-9xl font-bold text-brand-600 tracking-tight">
+              80%
+            </span>
+            <span class="block text-2xl font-medium text-gray-900">
+              menos tiempo en papeleo
+            </span>
+            <p class="text-gray-600 text-lg leading-relaxed">
+              De diez horas semanales a solo dos. Trazabilidad completa y registros diarios al día sin usar ni un papel.
             </p>
-            <p class="mt-2 text-gray-600 leading-relaxed">
-              En Montes del Acebo han pasado de las carpetas llenas de hojas a tenerlo todo controlado con nuestra herramienta. Registros, trazabilidad y limpieza, todo en el mismo sitio y sin líos.
-            </p>
-            <blockquote class="mt-4 italic text-gray-700 border-l-4 border-brand-500 pl-4">
-              "Antes perdíamos horas buscando papeles para cada inspección. Ahora lo tenemos todo en 2 clics."
-            </blockquote>
           </div>
-
-          <div class="mt-8 space-y-3">
-            {results.map((result) => (
-              <div class="flex items-start gap-3">
-                <CheckCircleIcon className="mt-0.5 h-5 w-5 flex-shrink-0 text-brand-500" />
-                <span class="text-sm text-gray-700">{result}</span>
-              </div>
-            ))}
-          </div>
-
-          <div class="mt-8">
-            <a href="https://appcc-demo.apps.cadlylabs.com/auth/login" target="_blank" class="inline-flex items-center gap-2 rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-all duration-200 cursor-pointer hover:bg-brand-700 hover:shadow-md">
-              Echa un vistazo a la demo
-              <svg
-                class="h-4 w-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
-          </div>
-        </div>
+        </FadeInView>
       </div>
-    </FadeInView>
+
+      <div class="mt-16 lg:mt-0 lg:col-span-7">
+        <FadeInView client:visible delay={0.2}>
+          <div class="prose prose-lg text-gray-600 mb-12">
+            <p>
+              Montes del Acebo es una sala de despiece que perdía horas buscando papeles para cada inspección. Necesitaban una solución que no interrumpiera su ritmo de trabajo diario.
+            </p>
+            <p>
+              Construimos un sistema a medida donde el equipo registra todo desde una tablet. Ahora, cuando llega una auditoría, sacan los informes de trazabilidad en un par de clics.
+            </p>
+          </div>
+
+          <div class="aspect-video bg-gray-100 rounded-2xl overflow-hidden shadow-sm">
+            <picture>
+              <div class="w-full h-full flex items-center justify-center text-gray-400 bg-gray-50">
+                <span class="text-sm font-medium">Espacio para imagen de contexto</span>
+              </div>
+            </picture>
+          </div>
+        </FadeInView>
+      </div>
+    </div>
   </div>
 </section>
