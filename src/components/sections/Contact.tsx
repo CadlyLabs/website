@@ -1,14 +1,12 @@
 "use client";
 
 import { useState } from "react";
-import { motion } from "motion/react";
 import { Envelope, Phone, Clock, UserCheck, Shield, X } from "@phosphor-icons/react";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { FadeInView } from "@/components/animations/FadeInView";
 import { cn } from "@/lib/utils";
-
 
 interface FormErrors {
   name?: string;
@@ -179,27 +177,7 @@ export function Contact() {
             </FadeInView>
 
             <FadeInView delay={0.2}>
-              <div className="space-y-8">
-                <div className="text-center">
-                  <motion.a
-                    href="https://calendly.com/cadlylabs/20min"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.02 }}
-                    transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                    className="inline-flex items-center gap-2 rounded-full bg-brand-600 px-8 py-4 text-lg font-medium text-white hover:bg-brand-700 transition-colors"
-                  >
-                    Reserva una llamada de 20 minutos
-                  </motion.a>
-                </div>
-
-                <div className="flex items-center gap-4">
-                  <div className="flex-1 border-t border-gray-200"></div>
-                  <p className="text-sm text-gray-500">O si prefieres, escríbenos directamente</p>
-                  <div className="flex-1 border-t border-gray-200"></div>
-                </div>
-
-                <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8" suppressHydrationWarning>
+              <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8" suppressHydrationWarning>
                 <form onSubmit={handleSubmit} className="space-y-6" suppressHydrationWarning>
                   <div className="space-y-2">
                     <Label htmlFor="name">Nombre</Label>
@@ -276,7 +254,6 @@ export function Contact() {
 
                 </form>
               </div>
-            </div>
             </FadeInView>
           </div>
         </div>

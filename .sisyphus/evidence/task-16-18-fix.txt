@@ -1,9 +1,0 @@
-Tasks 16+18 done
-[slug].astro
-appcc.astro
-automatizacion.astro
-dashboard.astro
-documentos.astro
-index.astro
-proveedores.astro
-whatsapp.astro

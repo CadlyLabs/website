@@ -1,5 +1,0 @@
-Task 7 done
-9:  { label: "Soluciones", href: "/soluciones/" },
-10:  { label: "Casos", href: "#casos" },
-152:                ¿Hablamos?
-237:                   ¿Hablamos?

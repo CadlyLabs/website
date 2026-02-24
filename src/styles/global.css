@@ -29,11 +29,6 @@
   --font-sans: "Manrope", system-ui, sans-serif;
   --font-serif: "Libre Baskerville", Georgia, serif;
 
-  /* Typography - Display & Heading Sizes */
-  --text-display: 3.5rem;
-  --text-heading: 2rem;
-  --text-subheading: 1.5rem;
-
   /* Brand Orange Gradient System */
   --color-brand-50: rgb(255, 247, 239);
   --color-brand-100: rgb(254, 235, 213);
@@ -180,11 +175,6 @@
     scroll-behavior: smooth;
   }
 
-  /* Serif headings with tight tracking */
-  h1, h2, h3 {
-    font-family: var(--font-heading);
-    @apply tracking-tighter;
-  }
   /* Accessibility: Focus visible styles */
   *:focus-visible {
     outline: 3px solid #ff8532;
@@ -218,14 +208,6 @@
   }
   .font-body {
     font-family: var(--font-body);
-  }
-  .text-serif {
-    font-family: var(--font-heading);
-  }
-  .text-display {
-    font-size: var(--text-display);
-    font-family: var(--font-heading);
-    @apply tracking-tighter;
   }
 }
 

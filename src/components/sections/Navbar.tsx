@@ -6,8 +6,8 @@ import { motion, AnimatePresence } from "motion/react";
 import { cn } from "@/lib/utils";
 
 const navItems = [
-  { label: "Soluciones", href: "/soluciones/" },
-  { label: "Casos", href: "#casos" },
+  { label: "Soluciones", href: "#soluciones" },
+  { label: "Casos de éxito", href: "#casos" },
   { label: "Cómo trabajamos", href: "#proceso" },
 ];
 
@@ -15,104 +15,48 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState("");
-  const [currentPath, setCurrentPath] = useState("");
 
   useEffect(() => {
-    let observer: IntersectionObserver;
-    let scrollElement: Element | Window;
-    let handleScroll: () => void;
+    const main = document.querySelector("main");
+    const scrollElement = main || window;
 
-    const init = () => {
-      setCurrentPath(window.location.pathname);
-      
-      const main = document.querySelector("main");
-      scrollElement = main || window;
+    const handleScroll = () => {
+      const scrollTop = main ? main.scrollTop : window.scrollY;
+      setIsScrolled(scrollTop > 20);
+    };
 
-      handleScroll = () => {
-        const scrollTop = main ? main.scrollTop : window.scrollY;
-        setIsScrolled(scrollTop > 20);
-      };
-
-      const observerCallback = (entries: IntersectionObserverEntry[]) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setActiveSection(`#${entry.target.id}`);
-          }
-        });
-      };
-
-      observer = new IntersectionObserver(observerCallback, {
-        rootMargin: "-50% 0px -50% 0px",
+    const observerCallback = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveSection(`#${entry.target.id}`);
+        }
       });
-
-      const sections = document.querySelectorAll("section[id]");
-      sections.forEach((section) => observer.observe(section));
-
-      scrollElement.addEventListener("scroll", handleScroll);
-      handleScroll();
     };
 
-    const cleanup = () => {
-      if (scrollElement && handleScroll) {
-        scrollElement.removeEventListener("scroll", handleScroll);
-      }
-      if (observer) {
-        observer.disconnect();
-      }
-    };
+    const observer = new IntersectionObserver(observerCallback, {
+      rootMargin: "-50% 0px -50% 0px",
+    });
 
-    init();
+    const sections = document.querySelectorAll("section[id]");
+    sections.forEach((section) => observer.observe(section));
 
-    const handlePageLoad = () => {
-      cleanup();
-      init();
-    };
-
-    document.addEventListener("astro:page-load", handlePageLoad);
+    scrollElement.addEventListener("scroll", handleScroll);
+    handleScroll();
 
     return () => {
-      cleanup();
-      document.removeEventListener("astro:page-load", handlePageLoad);
+      scrollElement.removeEventListener("scroll", handleScroll);
+      observer.disconnect();
     };
   }, []);
 
-  const handleNavClick = (href: string, e?: React.MouseEvent) => {
+  const handleNavClick = (href: string) => {
     setIsMobileMenuOpen(false);
-    
-    if (href.startsWith("#")) {
-      if (window.location.pathname !== "/") {
-        if (e) e.preventDefault();
-        window.location.href = "/" + href;
-        return;
-      }
-      
-      if (e) e.preventDefault();
-      const element = document.querySelector(href);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    } else if (e) {
-      if (e.currentTarget.tagName !== 'A') {
-        window.location.href = href;
-      }
-    } else {
-      window.location.href = href;
+    const element = document.querySelector(href);
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const getHref = (href: string) => {
-    if (href.startsWith("#") && currentPath !== "/") {
-      return "/" + href;
-    }
-    return href;
-  };
-
-  const isActive = (href: string) => {
-    if (href.startsWith("/")) {
-      return currentPath.startsWith(href);
-    }
-    return activeSection === href && currentPath === "/";
-  };
   return (
     <>
       <header
@@ -150,39 +94,29 @@ export function Navbar() {
 
             <div className="hidden items-center align-middle gap-8 md:flex">
               {navItems.map((item) => (
-                <motion.a
-                  href={getHref(item.href)}
+                <a
+                  href={item.href}
                   key={item.href}
-                  onClick={(e) => handleNavClick(item.href, e)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
                   className={cn(
-                    "font-sans text-sm font-medium transition-colors hover:text-brand-600",
-                    isActive(item.href)
+                    "text-sm font-medium transition-colors hover:text-brand-600",
+                    activeSection === item.href
                       ? "text-brand-600"
                       : "text-gray-600"
                   )}
                 >
                   {item.label}
-                </motion.a>
+                </a>
               ))}
-              <motion.button
-                onClick={(e) => handleNavClick("#contacto", e)}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                className="font-sans cursor-pointer rounded-full bg-brand-600 px-3 py-1 text-sm font-medium text-white transition-colors hover:bg-brand-700"
+              <button
+                onClick={() => handleNavClick("#contacto")}
+                className="rounded-full bg-brand-600 px-3 py-1 text-sm font-medium text-white transition-colors hover:bg-brand-700 cursor-pointer "
               >
                 ¿Hablamos?
-              </motion.button>
+              </button>
             </div>
 
-            <motion.button
+            <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 100, damping: 20 }}
               className="rounded-lg p-2 text-gray-600 hover:bg-gray-100 md:hidden"
               aria-label="Toggle menu"
             >
@@ -191,7 +125,7 @@ export function Navbar() {
               ) : (
                 <ListIcon className="h-6 w-6" />
               )}
-            </motion.button>
+            </button>
           </div>
         </nav>
       </header>
@@ -218,46 +152,38 @@ export function Navbar() {
                 <span className="font-heading text-lg font-bold text-gray-900">
                   Menú
                 </span>
-                <motion.button
+                <button
                   onClick={() => setIsMobileMenuOpen(false)}
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
                   className="rounded-lg p-2 text-gray-600 hover:bg-gray-100"
                   aria-label="Close menu"
                 >
                   <XIcon className="h-6 w-6" />
-                </motion.button>
+                </button>
               </div>
               <nav className="flex flex-col p-4">
                 {navItems.map((item, index) => (
-                  <motion.a
+                  <motion.button
                     key={item.href}
-                    href={getHref(item.href)}
-                    onClick={(e) => handleNavClick(item.href, e)}
                     initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0, transition: { delay: index * 0.05 } }}
-                    whileHover={{ x: 10 }}
-                    whileTap={{ scale: 0.98 }}
-                    transition={{ type: "spring", stiffness: 100, damping: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: index * 0.05 }}
+                    onClick={() => handleNavClick(item.href)}
                     className={cn(
-                      "font-sans py-3 text-left text-lg font-medium transition-colors",
-                      isActive(item.href)
+                      "py-3 text-left text-lg font-medium transition-colors",
+                      activeSection === item.href
                         ? "text-brand-600"
                         : "text-gray-700 hover:text-brand-600"
                     )}
                   >
                     {item.label}
-                  </motion.a>
+                  </motion.button>
                 ))}
                 <motion.button
                   initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0, transition: { delay: navItems.length * 0.05 } }}
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                  onClick={(e) => handleNavClick("#contacto", e)}
-                  className="font-sans mt-4 rounded-full bg-brand-600 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-brand-700"
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: navItems.length * 0.05 }}
+                  onClick={() => handleNavClick("#contacto")}
+                  className="mt-4 rounded-full bg-brand-600 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-brand-700"
                 >
                    ¿Hablamos?
                 </motion.button>

@@ -8,8 +8,6 @@ import "@fontsource/manrope/700.css";
 import "../styles/global.css";
 import SEO from "../components/SEO.astro";
 import StructuredData from "../components/StructuredData.astro";
-import { ClientRouter } from "astro:transitions";
-import { WhatsAppCTA } from "../components/ui/WhatsAppCTA";
 
 interface Props {
   title?: string;
@@ -64,10 +62,8 @@ const { title, description, image, canonical, noindex, nofollow } = Astro.props;
 
     <!-- Structured Data -->
     <StructuredData />
-    <ClientRouter />
   </head>
   <body class="font-body antialiased">
-    <WhatsAppCTA client:load />
     <slot />
   </body>
 </html>

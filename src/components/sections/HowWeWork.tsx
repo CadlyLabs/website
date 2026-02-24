@@ -2,68 +2,109 @@
 
 import { MagnifyingGlassIcon, FileTextIcon, CodeIcon, RocketIcon } from "@phosphor-icons/react";
 import { FadeInView } from "@/components/animations/FadeInView";
-
+import { TracingBeam } from "@/components/ui/tracing-beam";
 
 const steps = [
   {
     number: "01",
-    title: "Diagnóstico",
+    title: "Una charla sin compromiso",
     description:
-      "Entendemos tu operación, tus sistemas y tus cuellos de botella. Encontramos exactamente dónde pierdes más tiempo.",
+      "Nos cuentas cómo trabajas ahora. Vemos dónde se pierde más tiempo y te decimos qué haríamos. Sin rodeos.",
     Icon: MagnifyingGlassIcon,
   },
   {
     number: "02",
-    title: "Construcción",
+    title: "Propuesta clara y precio cerrado",
     description:
-      "Construimos los agentes y flujos específicos para tu caso. Nos integramos con lo que ya usas sin romper nada.",
-    Icon: CodeIcon,
+      "Te decimos exactamente qué vamos a hacer, cuánto tarda y cuánto cuesta. Sin sorpresas al final.",
+    Icon: FileTextIcon,
   },
   {
     number: "03",
-    title: "Acompañamiento",
+    title: "Montamos tu sistema",
     description:
-      "No desaparecemos. Formamos a tu equipo, iteramos, mejoramos y ampliamos el sistema según tus necesidades.",
+      "Construimos e integramos todo con lo que ya usas. Cada semana te enseñamos cómo va avanzando.",
+    Icon: CodeIcon,
+  },
+  {
+    number: "04",
+    title: "Arrancamos y te acompañamos",
+    description:
+      "Formamos a tu equipo, arrancamos poco a poco y seguimos contigo. Si algo falla, lo resolvemos.",
     Icon: RocketIcon,
   },
 ];
 
+const MARKER_POSITIONS = [0.125, 0.375, 0.625, 0.875];
 
 export function HowWeWork() {
   return (
     <section id="proceso" className="bg-white py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <FadeInView className="max-w-3xl">
-          <span className="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700 font-body">
-            Metodología
+        <FadeInView className="text-center">
+          <span className="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
+            Así trabajamos
           </span>
-          <h2 className="mt-6 font-heading text-4xl font-bold text-gray-900 sm:text-5xl md:text-6xl">
+          <h2 className="mt-4 font-heading text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
             De la primera llamada al sistema en marcha
           </h2>
-          <p className="mt-6 text-xl leading-relaxed text-gray-600 font-body">
-            Resultados visibles desde el primer mes. Sin proyectos eternos y sin sorpresas.
+          <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
+            Resultados visibles desde el primer mes. Sin proyectos eternos, sin sorpresas.
           </p>
         </FadeInView>
 
-        <div className="mt-16 flex flex-col gap-8 md:gap-12">
+        <div className="mt-16 hidden md:block">
+          <TracingBeam className="max-w-4xl" markerPositions={MARKER_POSITIONS}>
+            <div className="space-y-8 pl-12">
+              {steps.map((step, index) => {
+                const Icon = step.Icon;
+                return (
+                  <FadeInView key={step.number} delay={index * 0.15}>
+                    <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:shadow-lg hover:border-brand-200">
+                      <div className="mb-5 flex items-center gap-4">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50">
+                          <Icon className="h-6 w-6 text-brand-600" />
+                        </div>
+                        <span className="font-heading text-sm font-bold text-brand-600">
+                          Paso {step.number}
+                        </span>
+                      </div>
+                      <h3 className="font-heading text-2xl font-bold text-gray-900">
+                        {step.title}
+                      </h3>
+                      <p className="mt-3 text-base leading-relaxed text-gray-600">
+                        {step.description}
+                      </p>
+                    </div>
+                  </FadeInView>
+                );
+              })}
+            </div>
+          </TracingBeam>
+        </div>
+
+        <div className="mt-16 space-y-6 md:hidden">
           {steps.map((step, index) => {
             const Icon = step.Icon;
             return (
-              <FadeInView key={step.number} delay={index * 0.15}>
-                <div className="group relative grid gap-8 rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:border-brand-200 hover:shadow-lg md:grid-cols-[1fr_3fr] md:p-12">
-                  <div className="flex flex-col justify-between gap-6 border-b border-gray-100 pb-6 md:border-b-0 md:border-r md:pb-0 md:pr-8">
-                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-brand-50 transition-colors group-hover:bg-brand-100">
-                      <Icon className="h-8 w-8 text-brand-600" />
-                    </div>
-                    <span className="font-heading text-6xl font-bold text-brand-100 transition-colors group-hover:text-brand-200">
-                      {step.number}
-                    </span>
+              <FadeInView key={step.number} delay={index * 0.1}>
+                <div className="relative rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+                  <div className="absolute -left-3 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-brand-500 text-sm font-bold text-white shadow-lg">
+                    {step.number}
                   </div>
-                  <div className="flex flex-col justify-center">
-                    <h3 className="font-heading text-3xl font-bold text-gray-900 md:text-4xl">
+                  <div className="ml-6">
+                    <div className="mb-3 flex items-center gap-3">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-brand-50">
+                        <Icon className="h-5 w-5 text-brand-600" />
+                      </div>
+                      <span className="font-heading text-sm font-bold text-brand-600">
+                        Paso {step.number}
+                      </span>
+                    </div>
+                    <h3 className="font-heading text-xl font-bold text-gray-900">
                       {step.title}
                     </h3>
-                    <p className="mt-4 max-w-2xl text-lg leading-relaxed text-gray-600 font-body">
+                    <p className="mt-2 text-sm leading-relaxed text-gray-600">
                       {step.description}
                     </p>
                   </div>

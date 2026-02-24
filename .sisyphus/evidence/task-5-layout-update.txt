@@ -1,9 +1,0 @@
-Layout updated with ClientRouter and WhatsAppCTA
-/Users/danik/CadlyLabs/website/src/layouts/Layout.astro:11:import { ClientRouter } from "astro:transitions";
-/Users/danik/CadlyLabs/website/src/layouts/Layout.astro:12:import { WhatsAppCTA } from "../components/ui/WhatsAppCTA";
-/Users/danik/CadlyLabs/website/src/layouts/Layout.astro:67:    <ClientRouter />
-/Users/danik/CadlyLabs/website/src/layouts/Layout.astro:70:    <WhatsAppCTA client:load />
-/Users/danik/CadlyLabs/website/src/pages/index.astro:20:    <Navbar client:load transition:persist />
-
-=== BUILD OUTPUT ===
-Build completed successfully
