@@ -337,11 +337,9 @@ export function FoodServices() {
         </FadeInView>
 
         <FadeInView delay={0.3}>
-          <div className="mt-16 rounded-2xl border border-brand-200 bg-brand-50 p-6 text-center sm:p-8">
-            <p className="text-base font-medium text-brand-800 sm:text-lg">
-              Pedidos, picking, rutas, integración con tu ERP — si te quita tiempo, lo automatizamos.
-            </p>
-          </div>
+          <p className="mt-16 text-center text-sm text-gray-500">
+            También automatizamos pedidos, picking, rutas y conexión con tu ERP.
+          </p>
         </FadeInView>
       </div>
     </section>
