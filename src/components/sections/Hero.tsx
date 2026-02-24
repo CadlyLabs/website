@@ -46,7 +46,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-8 font-heading text-4xl font-semibold leading-tight text-gray-900 sm:text-5xl md:text-6xl"
           >
-            Gana dos horas al día olvidándote del papeleo
+            Lo que tu ERP no cubre, lo cubrimos nosotros
           </motion.h1>
 
             <motion.p
@@ -55,7 +55,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mx-auto mt-6 max-w-2xl text-lg text-gray-600 sm:text-xl"
             >
-              Una herramienta que tu equipo aprende a usar en diez minutos. Controla el APPCC y la trazabilidad por lote sin complicaciones y desde el móvil.
+              Documentos, trazabilidad, pedidos — lo que te quite tiempo, lo automatizamos
             </motion.p>
 
           <motion.div
@@ -71,7 +71,7 @@ export function Hero() {
               borderClassName="bg-[radial-gradient(rgb(255,133,50)_40%,transparent_60%)]"
               className="border-brand-600/20 bg-brand-600 text-sm font-medium text-white hover:bg-brand-700 cursor-pointer px-6 py-3"
             >
-              Mira cómo funciona
+              Mira lo que hacemos
             </MovingBorderButton>
 
             <button

@@ -250,23 +250,23 @@ interface ServiceCardData {
 
 const SERVICE_CARDS: readonly [ServiceCardData, ServiceCardData] = [
   {
-    title: "Tu APPCC, sin papeles",
+    title: "El APPCC que no te quita tiempo",
     subtitle:
-      "Lleva los registros de seguridad alimentaria desde el móvil. Sin carpetas, sin tener que acordarte de nada.",
+      "Llevar registros de seguridad alimentaria a mano es lento y da miedo cuando viene una inspección. Lo digitalizamos para que siempre estés al día.",
     benefits: [
-      "Registros del día en 2 minutos, no en 20",
+      "Registros listos en minutos, no en horas",
       "Trazabilidad por lote con un par de clics",
-      "Te avisamos antes de que caduque algo",
+      "Siempre preparado para una inspección",
     ],
     visual: <APPCCDashboardVisual />,
   },
   {
-    title: "Tus albaranes y facturas, solos",
-    subtitle: "Subes el documento y listo. Los datos aparecen donde tienen que estar, sin teclear nada.",
+    title: "Los albaranes y facturas que se procesan solos",
+    subtitle: "Cada documento que llega es tiempo que alguien dedica a teclear datos. Lo automatizamos para que ese tiempo lo uses en otra cosa.",
     benefits: [
-      "Lee los albaranes al recibirlos, sin escribir a mano",
-      "Saca los datos de tus facturas de forma automática",
-      "Todo archivado y buscable cuando lo necesites",
+      "Datos extraídos al instante, sin errores de transcripción",
+      "Facturas y albaranes archivados y buscables",
+      "Sincroniza con tu ERP sin cambiar nada",
     ],
     visual: <DocumentScannerVisual />,
   },
@@ -318,13 +318,13 @@ export function FoodServices() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <FadeInView className="text-center">
           <span className="inline-flex items-center rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
-            Para el sector alimentario
+            Lo que más resolvemos
           </span>
           <h2 className="mt-4 font-heading text-3xl font-bold text-gray-900 sm:text-4xl md:text-5xl">
-            Menos papeleo. Más control.
+            Los retos que más resolvemos
           </h2>
           <p className="mx-auto mt-4 max-w-2xl text-lg text-gray-600">
-            Dos herramientas pensadas para carnicerías, salas de despiece y distribuidores. Las pones en marcha en un día.
+            Cada negocio tiene sus retos. Estos son los que más resolvemos.
           </p>
         </FadeInView>
 
@@ -337,9 +337,11 @@ export function FoodServices() {
         </FadeInView>
 
         <FadeInView delay={0.3}>
-          <p className="mt-16 text-center text-sm text-gray-400">
-            También automatizamos pedidos, picking, rutas y conexión con tu ERP.
-          </p>
+          <div className="mt-16 rounded-2xl border border-brand-200 bg-brand-50 p-6 text-center sm:p-8">
+            <p className="text-base font-medium text-brand-800 sm:text-lg">
+              Pedidos, picking, rutas, integración con tu ERP — si te quita tiempo, lo automatizamos.
+            </p>
+          </div>
         </FadeInView>
       </div>
     </section>
