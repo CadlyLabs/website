@@ -274,7 +274,7 @@ const SERVICE_CARDS: readonly [ServiceCardData, ServiceCardData] = [
 
 function ServiceCard({ card }: { card: ServiceCardData }) {
   return (
-    <div className="group flex flex-col overflow-hidden rounded-3xl border border-gray-200 bg-white shadow-sm transition-all hover:border-brand-200 hover:shadow-lg">
+    <div className="group flex flex-col overflow-hidden rounded-none border border-gray-200 bg-white shadow-sm transition-all hover:border-brand-200 hover:shadow-lg">
       <div className="min-h-[280px] w-full overflow-hidden sm:min-h-0 sm:aspect-[16/10]">
         {card.visual}
       </div>
@@ -302,7 +302,7 @@ function ServiceCard({ card }: { card: ServiceCardData }) {
         <div className="mt-6 pt-2">
           <a
             href="#contacto"
-            className="inline-flex rounded-full bg-brand-600 px-6 py-3 text-sm font-medium text-white transition-colors hover:bg-brand-700"
+            className="inline-flex rounded-none bg-brand-600 px-8 py-4 text-sm font-medium text-white transition-colors hover:bg-brand-700"
           >
             Cuéntame más
           </a>

@@ -129,7 +129,7 @@ export function Contact() {
               <div className="grid gap-4 sm:grid-cols-2">
                 <a
                   href="mailto:info@cadlylabs.com"
-                  className="group flex flex-col items-center gap-3 rounded-3xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-brand-200 hover:shadow-lg"
+                  className="group flex flex-col items-center gap-3 rounded-none border border-gray-200 bg-white p-6 text-center transition-all hover:border-brand-200 hover:shadow-lg"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-50 transition-colors group-hover:bg-brand-100">
                     <Envelope className="h-7 w-7 text-brand-600" />
@@ -146,7 +146,7 @@ export function Contact() {
 
                 <a
                   href="tel:+34606518235"
-                  className="group flex flex-col items-center gap-3 rounded-3xl border border-gray-200 bg-white p-6 text-center transition-all hover:border-brand-200 hover:shadow-lg"
+                  className="group flex flex-col items-center gap-3 rounded-none border border-gray-200 bg-white p-6 text-center transition-all hover:border-brand-200 hover:shadow-lg"
                 >
                   <div className="flex h-14 w-14 items-center justify-center rounded-xl bg-brand-50 transition-colors group-hover:bg-brand-100">
                     <Phone className="h-7 w-7 text-brand-600" />
@@ -177,7 +177,7 @@ export function Contact() {
             </FadeInView>
 
             <FadeInView delay={0.2}>
-              <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8" suppressHydrationWarning>
+              <div className="rounded-none border border-gray-200 bg-white p-6 shadow-sm sm:p-8" suppressHydrationWarning>
                 <form onSubmit={handleSubmit} className="space-y-6" suppressHydrationWarning>
                   <div className="space-y-2">
                     <Label htmlFor="name">Nombre</Label>
@@ -241,7 +241,7 @@ export function Contact() {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full rounded-full bg-brand-600 py-3 font-medium text-white transition-colors hover:bg-brand-700 disabled:opacity-50"
+                    className="w-full rounded-none bg-brand-600 py-3 font-medium text-white transition-colors hover:bg-brand-700 disabled:opacity-50"
                   >
                     {isSubmitting ? "Enviando..." : "Enviar mensaje"}
                   </button>
@@ -261,7 +261,7 @@ export function Contact() {
 
       {showModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50">
-          <div className="relative mx-4 max-w-md rounded-3xl border border-gray-200 bg-white p-8 shadow-lg">
+          <div className="relative mx-4 max-w-md rounded-none border border-gray-200 bg-white p-8 shadow-lg">
             <button
               onClick={() => setShowModal(false)}
               aria-label="Cerrar"
@@ -281,7 +281,7 @@ export function Contact() {
               </p>
               <button
                 onClick={() => setShowModal(false)}
-                className="mt-6 w-full rounded-full bg-brand-600 py-2 font-medium text-white transition-colors hover:bg-brand-700"
+                className="mt-6 w-full rounded-none bg-brand-600 py-2 font-medium text-white transition-colors hover:bg-brand-700"
               >
                 Cerrar
               </button>

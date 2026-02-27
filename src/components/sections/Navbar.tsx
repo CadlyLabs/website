@@ -60,25 +60,17 @@ export function Navbar() {
   return (
     <>
       <header
-        className={cn(
-          "fixed left-0 right-0 z-50 transition-all duration-500",
-          isScrolled ? "top-4" : "top-0"
-        )}
+        className="fixed top-0 left-0 right-0 z-50"
       >
         <nav
           className={cn(
-            "mx-auto transition-all duration-500",
+            "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 transition-colors duration-300",
             isScrolled
-              ? "max-w-4xl rounded-full border border-white/20 bg-white/70 px-4 shadow-lg shadow-black/5 backdrop-blur-xl"
-              : "max-w-7xl bg-transparent px-4 sm:px-6 lg:px-8"
+              ? "bg-gray-50/80 backdrop-blur-xl border-b border-gray-200/80 shadow-sm"
+              : "bg-transparent"
           )}
         >
-          <div
-            className={cn(
-              "flex items-center justify-between transition-all duration-500",
-              isScrolled ? "h-14" : "h-16 md:h-20"
-            )}
-          >
+          <div className="flex h-16 md:h-20 items-center justify-between">
             <a href="/" className="flex items-center gap-3">
               <img
                 src="/images/logos/cadly_logo.avif"
@@ -109,7 +101,7 @@ export function Navbar() {
               ))}
               <button
                 onClick={() => handleNavClick("#contacto")}
-                className="rounded-full bg-brand-600 px-3 py-1 text-sm font-medium text-white transition-colors hover:bg-brand-700 cursor-pointer "
+                className="rounded-none bg-brand-600 px-5 py-2 text-sm font-medium text-white transition-colors hover:bg-brand-700 cursor-pointer "
               >
                 ¿Hablamos?
               </button>
@@ -183,7 +175,7 @@ export function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: navItems.length * 0.05 }}
                   onClick={() => handleNavClick("#contacto")}
-                  className="mt-4 rounded-full bg-brand-600 px-6 py-3 text-center text-base font-medium text-white transition-colors hover:bg-brand-700"
+                  className="mt-4 rounded-none bg-brand-600 px-8 py-4 text-center text-base font-medium text-white transition-colors hover:bg-brand-700"
                 >
                    ¿Hablamos?
                 </motion.button>

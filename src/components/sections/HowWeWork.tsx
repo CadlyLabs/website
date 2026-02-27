@@ -60,7 +60,7 @@ export function HowWeWork() {
                 const Icon = step.Icon;
                 return (
                   <FadeInView key={step.number} delay={index * 0.15}>
-                    <div className="rounded-3xl border border-gray-200 bg-white p-8 shadow-sm transition-all hover:shadow-lg hover:border-brand-200">
+                    <div className="rounded-none border border-gray-200 bg-white p-8 shadow-sm transition-all hover:shadow-lg hover:border-brand-200">
                       <div className="mb-5 flex items-center gap-4">
                         <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-brand-50">
                           <Icon className="h-6 w-6 text-brand-600" />
@@ -88,7 +88,7 @@ export function HowWeWork() {
             const Icon = step.Icon;
             return (
               <FadeInView key={step.number} delay={index * 0.1}>
-                <div className="relative rounded-3xl border border-gray-200 bg-white p-6 shadow-sm">
+                <div className="relative rounded-none border border-gray-200 bg-white p-6 shadow-sm">
                   <div className="absolute -left-3 top-6 flex h-10 w-10 items-center justify-center rounded-full bg-brand-500 text-sm font-bold text-white shadow-lg">
                     {step.number}
                   </div>
