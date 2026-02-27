@@ -24,10 +24,11 @@
 
 @theme inline {
   /* Typography - Brand Fonts */
-  --font-heading: "Libre Baskerville", Georgia, serif;
-  --font-body: "Manrope", system-ui, sans-serif;
-  --font-sans: "Manrope", system-ui, sans-serif;
-  --font-serif: "Libre Baskerville", Georgia, serif;
+  --font-heading: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-body: "Geist Sans", system-ui, sans-serif;
+  --font-sans: "Geist Sans", system-ui, sans-serif;
+  --font-serif: "Fraunces", Georgia, serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
 
   /* Brand Orange Gradient System */
   --color-brand-50: rgb(255, 247, 239);
@@ -208,6 +209,12 @@
   }
   .font-body {
     font-family: var(--font-body);
+  }
+  .font-mono {
+    font-family: var(--font-mono);
+  }
+  .font-serif {
+    font-family: var(--font-serif);
   }
 }
 

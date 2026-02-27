@@ -36,7 +36,7 @@ export function Hero() {
           >
             <span className="inline-flex items-center gap-2 rounded-full bg-brand-100 px-4 py-1.5 text-sm font-medium text-brand-700">
               <SparkleIcon className="h-4 w-4" />
-              Tecnología que entiende tu día a día
+              AI para industria alimentaria
             </span>
           </motion.div>
 
@@ -46,7 +46,7 @@ export function Hero() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="mt-8 font-heading text-4xl font-semibold leading-tight text-gray-900 sm:text-5xl md:text-6xl"
           >
-            Lo que tu ERP no cubre, lo cubrimos nosotros
+            Tu <span className="font-serif italic">equipo de IA</span> para la industria alimentaria
           </motion.h1>
 
             <motion.p
@@ -55,7 +55,7 @@ export function Hero() {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="mx-auto mt-6 max-w-2xl text-lg text-gray-600 sm:text-xl"
             >
-              Documentos, trazabilidad, pedidos. Lo que te quite tiempo, lo automatizamos.
+              Procesamos tus documentos, digitalizamos tu APPCC, conectamos tus sistemas y automatizamos los procesos que te roban tiempo. Sin cambiar nada de lo que ya usas.
             </motion.p>
 
           <motion.div
@@ -65,20 +65,20 @@ export function Hero() {
             className="mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row"
           >
             <MovingBorderButton
-              onClick={() => handleScrollToSection("#soluciones")}
+              onClick={() => handleScrollToSection("#contacto")}
               borderRadius="1.5rem"
               containerClassName="h-12 w-fit"
               borderClassName="bg-[radial-gradient(rgb(255,133,50)_40%,transparent_60%)]"
               className="border-brand-600/20 bg-brand-600 text-sm font-medium text-white hover:bg-brand-700 cursor-pointer px-6 py-3"
             >
-              Mira lo que hacemos
+              Agenda una llamada
             </MovingBorderButton>
 
             <button
-              onClick={() => handleScrollToSection("#contacto")}
+              onClick={() => handleScrollToSection("#soluciones")}
               className="flex h-12 items-center justify-center rounded-3xl border-2 border-gray-300 bg-white/80 px-6 text-sm font-medium text-gray-700 backdrop-blur-sm transition-all hover:border-brand-500 hover:text-brand-600"
             >
-              ¿Hablamos?
+              Ver soluciones
             </button>
           </motion.div>
         </motion.div>
@@ -97,7 +97,7 @@ export function Hero() {
           }}
           className="flex flex-col items-center gap-2 text-gray-400"
         >
-          <span className="text-sm">Echa un ojo</span>
+          <span className="text-sm">Descubre más</span>
           <svg
             className="h-5 w-5"
             fill="none"
