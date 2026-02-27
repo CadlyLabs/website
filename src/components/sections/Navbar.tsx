@@ -60,16 +60,14 @@ export function Navbar() {
   return (
     <>
       <header
-        className="fixed top-0 left-0 right-0 z-50"
+        className={cn(
+          "fixed top-0 left-0 right-0 z-50 transition-colors duration-300",
+          isScrolled
+            ? "bg-gray-50/80 backdrop-blur-xl border-b border-gray-200/80"
+            : "bg-transparent"
+        )}
       >
-        <nav
-          className={cn(
-            "mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 transition-colors duration-300",
-            isScrolled
-              ? "bg-gray-50/80 backdrop-blur-xl border-b border-gray-200/80 shadow-sm"
-              : "bg-transparent"
-          )}
-        >
+        <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="flex h-16 md:h-20 items-center justify-between">
             <a href="/" className="flex items-center gap-3">
               <img

@@ -23,7 +23,7 @@ export function Hero() {
       </div>
 
       <div className="container relative z-10 mx-auto px-4 pt-24 pb-32 md:px-6 md:pt-28 flex flex-col min-h-screen">
-        <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 md:gap-12 items-end mt-8 md:mt-16">
+        <div className="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-8 md:gap-12 items-start flex-1">
 
           {/* Left Column: Heading */}
           <div>
@@ -41,7 +41,7 @@ export function Hero() {
           </div>
 
           {/* Right Column: Subheader + Buttons */}
-          <div className="flex flex-col items-start md:items-end gap-8 md:pb-2">
+          <div className="flex flex-col items-start md:items-end gap-8 md:pb-2 md:self-end">
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
